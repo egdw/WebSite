@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/AboutMy/js/respond.min.js,WebRoot/AboutMy/js/jquery.min.js,WebRoot/AboutMy/js/jquery.waypoints.min.js,WebRoot/AboutMy/index.html
+validator.Unchecked=
