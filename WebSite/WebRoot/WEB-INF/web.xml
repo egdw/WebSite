@@ -14,6 +14,7 @@
 <filter-mapping>
 <filter-name>HiddenHttpMethodFilter</filter-name>
 <url-pattern>/*</url-pattern>
+
 <!-- SpringMVC核心servlet -->
 </filter-mapping>
 	<servlet>

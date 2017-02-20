@@ -9,7 +9,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-<meta name="keywords" content="Simple Profile Widget Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free web designs for Nokia, Samsung, LG, sony ericsson, Motorola web design" />
 <link href='https://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 <script src="js/jquery.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/script.js"></script>
@@ -42,7 +41,7 @@
 		    <li class="button"><a href="#">信息<span class="icon stat"> </span><i>3</i></a></li>          	
             <li class="dropdown">
                 <ul class="icon-navigation">
-                    <li><a href="#">我的作品</a></li>
+                    <li><a href="project/MyProject.do">我的作品</a></li>
                     <li><a href="#">我的博客</a></li>
                     <li><a href="#">趣味网页</a></li>
                     <li><a href="#">临时网页</a></li>

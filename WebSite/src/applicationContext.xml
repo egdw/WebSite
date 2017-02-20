@@ -11,7 +11,8 @@
 	<mvc:default-servlet-handler/>
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/" />
+		<property name="prefix" value="/WEB-INF/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<mvc:resources location="/WEB-INF/project/list/" mapping="/list/**" />
 </beans>
