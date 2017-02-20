@@ -1,5 +1,6 @@
 package com.website.entites;
 
+import java.util.Arrays;
 import java.util.Date;
 
 public class WebsiteProject {
@@ -62,4 +63,15 @@ public class WebsiteProject {
     public void setProjectImg(byte[] projectImg) {
         this.projectImg = projectImg;
     }
+
+	@Override
+	public String toString() {
+		return "WebsiteProject [projectId=" + projectId + ", projectUrl="
+				+ projectUrl + ", projectTopic=" + projectTopic
+				+ ", projectText=" + projectText + ", projectCreateDate="
+				+ projectCreateDate + ", projectImg="
+				+ Arrays.toString(projectImg) + "]";
+	}
+    
+    
 }
