@@ -1,5 +1,7 @@
 package com.website.mapper;
 
+import java.util.ArrayList;
+
 import com.website.entites.WebsiteUserRoleKey;
 
 public interface WebsiteUserRoleMapper {
@@ -8,4 +10,9 @@ public interface WebsiteUserRoleMapper {
     int insert(WebsiteUserRoleKey record);
 
     int insertSelective(WebsiteUserRoleKey record);
+    
+    WebsiteUserRoleKey selectByUserId(Long id);
+    
+    ArrayList<WebsiteUserRoleKey> selectByRoleId(Long id);
+    
 }

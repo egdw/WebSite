@@ -90,7 +90,7 @@ body {
                     </ul></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://love.kfj.cc/index.php?mod=admin:logout"><span
+                <li><a href="logout.do"><span
                         class="glyphicon glyphicon-off"></span> 退出登录</a></li>
             </ul>
             <ul class="nav navbar-nav">

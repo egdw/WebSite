@@ -9,9 +9,11 @@ public interface WebsiteRoleMapper {
 
     int insertSelective(WebsiteRole record);
 
-    WebsiteRole selectByPrimaryKey(Integer roleId);
-
+    int deleteByUserId(Integer userId);
+    
     int updateByPrimaryKeySelective(WebsiteRole record);
 
     int updateByPrimaryKey(WebsiteRole record);
+    
+    WebsiteRole getByRoleId(Integer id);
 }

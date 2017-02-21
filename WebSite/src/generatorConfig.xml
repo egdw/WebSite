@@ -16,25 +16,25 @@
 		<javaClientGenerator targetPackage="com.website.mapper"
 			targetProject="WebSite" type="XMLMAPPER" />
 
-		<table tableName="website_project" enableCountByExample="false"
+		<!-- <table tableName="website_project" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
 		</table>
 		<table tableName="website_role" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
-		</table>
+		</table> -->
 		<table tableName="website_role_permission" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
 		</table>
-		<table tableName="website_user" enableCountByExample="false"
+		<!-- <table tableName="website_user" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
 		</table>
 		<table tableName="website_user_role" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
-		</table>
+		</table> -->
 	</context>
 </generatorConfiguration>  

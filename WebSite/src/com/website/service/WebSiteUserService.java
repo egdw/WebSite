@@ -50,8 +50,9 @@ public class WebSiteUserService {
 	 * @param username
 	 *            用户名
 	 */
-	public void getByUsername(String username) {
-
+	public WebsiteUser getByUsername(String username) {
+		WebsiteUser user = mapper.getByUsername(username);
+		return user;
 	}
 
 	/**

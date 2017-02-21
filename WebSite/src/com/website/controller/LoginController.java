@@ -1,7 +1,9 @@
 package com.website.controller;
 
-import javax.servlet.http.HttpSession;
-
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,16 +27,26 @@ public class LoginController {
 	 *            密码
 	 */
 	@RequestMapping(value = "Login.do", method = RequestMethod.POST)
-	public String loginByUsernamePasswd(String username, String password,
-			HttpSession session) {
-		WebsiteUser user = service.loginByUsernamePasswd(username, password);
-		if(user!=null){
-			session.setAttribute("currentUser", user);
-			return "admin/admin_index";
-		}else{
-			//这里有问题.等我集成shiro
-			return null;
+	public String loginByUsernamePasswd(String username, String password) {
+		Subject subject = SecurityUtils.getSubject();
+		UsernamePasswordToken token = new UsernamePasswordToken(username,
+				password);
+		try {
+			subject.login(token);
+		} catch (Exception e) {
+			return "error";
+			// 说明登陆失败
 		}
+		if (subject.isAuthenticated()) {
+			// 判断是否验证成功
+			try {
+				subject.checkRole("super_admin");
+			} catch (AuthorizationException e) {
+				// 说明不是超级管理员.
+				return "error";
+			}
+		}
+		return "admin/admin_index";
 	}
 
 	/**
@@ -51,7 +63,28 @@ public class LoginController {
 	/**
 	 * 退出登录
 	 */
-	public void logout() {
-		// 暂时用session代替.后续直接加上shiro
+	@RequestMapping("logout.do")
+	public String logout() {
+		Subject subject = SecurityUtils.getSubject();
+		subject.logout();
+		return "redirect:/project/MyProject.do";
+	}
+	
+	/*
+	 * 这个主要当用户点击进入管理的时候能够判断用户是否已经登录.如果已经登录就跳转到管理主页面
+	 */
+	@RequestMapping("manager")
+	public String OpenManagerView(){
+		Subject subject = SecurityUtils.getSubject();
+		if(subject.isAuthenticated()){
+			try {
+				subject.checkRole("super_admin");
+				return "/admin/admin_index";
+			} catch (AuthorizationException e) {
+				// 说明不是超级管理员.
+				return "redirect:/login/login.jsp";
+			}
+		}
+		return "redirect:/login/login.jsp";
 	}
 }

@@ -206,4 +206,8 @@
 	<select id="loginByUsernamePasswd" resultMap="getAllResultMap">
 		select * from website_user where login_account=#{0} and login_passwd=#{1};	
 	</select>
+	
+	<select id="getByUsername" resultMap="getAllResultMap">
+		select * from website_user where login_account=#{0};
+	</select>
 </mapper>

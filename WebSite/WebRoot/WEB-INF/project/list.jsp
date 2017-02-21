@@ -28,7 +28,8 @@
 					</p>
 				</div>
 				<div class="social fr">
-					<a href="<%=request.getContextPath()%>/login/login.jsp">后台管理</a>
+					<a href="<%=request.getContextPath()%>/login/manager">后台管理</a>
+<%-- 					<a href="<%=request.getContextPath()%>/login/login.jsp">后台管理</a> --%>
 				</div>
 			</div>
 		</div>

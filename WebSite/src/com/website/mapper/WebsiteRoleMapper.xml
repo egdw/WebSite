@@ -79,4 +79,16 @@
       description = #{description,jdbcType=VARCHAR}
     where role_id = #{roleId,jdbcType=INTEGER}
   </update>
+  
+  <resultMap type="com.website.entites.WebsiteRole" id="webSiteResultMap">
+  	<id column="role_id" property="roleId"/>
+  	<result column="role_name" property="roleName"/>
+  	<result column="create_time" property="createTime"/>
+  	<result column="description" property="description"/>
+  </resultMap>
+  
+  <select id="getByRoleId" resultMap="webSiteResultMap">
+  	select * from website_role where role_id = #{0};
+  </select>
+  
 </mapper>
