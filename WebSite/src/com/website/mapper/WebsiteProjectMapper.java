@@ -20,4 +20,8 @@ public interface WebsiteProjectMapper {
     int updateByPrimaryKey(WebsiteProject record);
     
     ArrayList<WebsiteProject> getAll();
+    
+    int getProjectNum();
+    
+    ArrayList<WebsiteProject> selectByPageNum(Integer pageNum,Integer getNum);
 }

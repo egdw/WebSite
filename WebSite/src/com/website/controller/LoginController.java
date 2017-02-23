@@ -1,5 +1,7 @@
 package com.website.controller;
 
+import java.util.Map;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationException;
@@ -74,11 +76,13 @@ public class LoginController {
 	 * 这个主要当用户点击进入管理的时候能够判断用户是否已经登录.如果已经登录就跳转到管理主页面
 	 */
 	@RequestMapping("manager")
-	public String OpenManagerView(){
+	public String OpenManagerView(Map<String, Object> map){
 		Subject subject = SecurityUtils.getSubject();
 		if(subject.isAuthenticated()){
 			try {
 				subject.checkRole("super_admin");
+				WebsiteUser user = service.getByUsername((String) subject.getPrincipal());
+				map.put("user", user);
 				return "/admin/admin_index";
 			} catch (AuthorizationException e) {
 				// 说明不是超级管理员.

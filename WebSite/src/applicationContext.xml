@@ -106,8 +106,8 @@
 		</property>
 	</bean>
 	
+	
 	<!-- <bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">  
      <property name="configLocation" value="classpath:mybatis_ehcache.xml" />  
    </bean> -->
-	
 </beans>

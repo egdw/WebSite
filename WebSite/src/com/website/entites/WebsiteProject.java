@@ -3,6 +3,8 @@ package com.website.entites;
 import java.util.Arrays;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class WebsiteProject {
     private Long projectId;
 
@@ -11,7 +13,8 @@ public class WebsiteProject {
     private String projectTopic;
 
     private String projectText;
-
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss") 
     private Date projectCreateDate;
 
     private byte[] projectImg;

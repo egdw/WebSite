@@ -140,4 +140,12 @@
 	<select id="getAll" resultMap="getAllResultMap">
 		select * from website_project;
 	</select>
+	
+	<select id="getProjectNum" resultType="int">
+		select count(*) from website_project;
+	</select>
+	
+	<select id="selectByPageNum" resultMap="getAllResultMap">
+		select * from website_project limit #{0},#{1};
+	</select>
 </mapper>
