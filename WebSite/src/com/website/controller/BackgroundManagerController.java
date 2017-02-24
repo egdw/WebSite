@@ -13,9 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.website.entites.WebsiteFunny;
 import com.website.entites.WebsiteProject;
+import com.website.entites.WebsiteTemp;
 import com.website.entites.WebsiteUser;
+import com.website.service.WebSiteFunnyService;
 import com.website.service.WebSiteProjectService;
+import com.website.service.WebSiteTempService;
 import com.website.service.WebSiteUserService;
 
 @Controller
@@ -25,7 +29,10 @@ public class BackgroundManagerController {
 	private WebSiteUserService service;
 	@Autowired
 	private WebSiteProjectService projectService;
-
+	@Autowired
+	private WebSiteFunnyService funnyService;
+	@Autowired
+	private WebSiteTempService tempService;
 	@RequestMapping("manager_person_setting.do")
 	public String entryPersonSetting(Map<String, Object> map) {
 		Subject subject = SecurityUtils.getSubject();
@@ -99,6 +106,146 @@ public class BackgroundManagerController {
 				project.setProjectUrl(projectUrl);
 				project.setProjectId(projectId);
 				projectService.update(project);
+				return "{project_update_success}";
+			}
+		}
+		return "{project_update_error}";
+	}
+	
+	/**
+	 * 项目显示界面.进行分页操作
+	 * 
+	 * @param pageNum
+	 *            当前的页数
+	 * @return
+	 */
+	@RequestMapping("manager_funny_manager.do")
+	public String entryFunnyManager(Integer pageNum, Map<String, Object> map) {
+		if (pageNum == null) {
+			pageNum = 0;
+		}
+		ArrayList<WebsiteFunny> list = funnyService
+				.selectProjectByNum(pageNum);
+		map.put("pageNum", String.valueOf(pageNum + 1));
+		int integer = projectService.getPageNum();
+		map.put("allNum", String.valueOf(integer));
+		map.put("projects", list);
+		return "admin/admin_funny_manager";
+	}
+	
+	@RequestMapping(value = "manager_funny_add.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String addfunny(
+			@RequestParam("project_topic") String project_topic,
+			@RequestParam("project_text") String project_text,
+			@RequestParam("project_url") String project_url) {
+		WebsiteFunny project = new WebsiteFunny();
+		project.setFunnyText(project_text);
+		project.setFunnyTopic(project_topic);
+		project.setFunnyUrl(project_url);
+		project.setFunnyCreateDate(new Date());
+		boolean b = funnyService.insertFunny(project);
+		if (b) {
+			return "{add_project_true}";
+		}
+		return "{add_project_error}";
+	}
+	
+	@RequestMapping(value = "manager_funny_delete.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String delFunny(Long projectId) {
+		if (projectId != null) {
+			boolean del = funnyService.delFunny(projectId);
+			if (del) {
+				return "{project_del_success}";
+			}
+		}
+		return "{project_del_error}";
+	}
+
+	@RequestMapping(value = "manager_funny_update.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String updateFunny(Long projectId, String projectUrl,
+			String projectText, String projectTopic) {
+		if (projectId != null && projectUrl != null && projectText != null
+				&& projectText != null) {
+			WebsiteFunny project = funnyService.getById(projectId);
+			if(project!=null){
+				project.setFunnyText(projectText);
+				project.setFunnyTopic(projectTopic);
+				project.setFunnyUrl(projectUrl);
+				project.setFunnyId(projectId);
+				funnyService.updateFunny(project);
+				return "{project_update_success}";
+			}
+		}
+		return "{project_update_error}";
+	}
+	
+	/**
+	 * 项目显示界面.进行分页操作
+	 * 
+	 * @param pageNum
+	 *            当前的页数
+	 * @return
+	 */
+	@RequestMapping("manager_temp_manager.do")
+	public String entryTempManager(Integer pageNum, Map<String, Object> map) {
+		if (pageNum == null) {
+			pageNum = 0;
+		}
+		ArrayList<WebsiteTemp> list = tempService
+				.selectProjectByNum(pageNum);
+		map.put("pageNum", String.valueOf(pageNum + 1));
+		int integer = projectService.getPageNum();
+		map.put("allNum", String.valueOf(integer));
+		map.put("projects", list);
+		return "admin/admin_temp_manager";
+	}
+	
+	@RequestMapping(value = "manager_temp_add.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String addTemp(
+			@RequestParam("project_topic") String project_topic,
+			@RequestParam("project_text") String project_text,
+			@RequestParam("project_url") String project_url) {
+		WebsiteTemp project = new WebsiteTemp();
+		project.setTempText(project_text);
+		project.setTempTopic(project_topic);
+		project.setTempUrl(project_url);
+		project.setTempCreateDate(new Date());
+		boolean b = tempService.insertTemp(project);
+		if (b) {
+			return "{add_project_true}";
+		}
+		return "{add_project_error}";
+	}
+	
+	@RequestMapping(value = "manager_temp_delete.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String delTemp(Long projectId) {
+		if (projectId != null) {
+			boolean del = tempService.delTemp(projectId);
+			if (del) {
+				return "{project_del_success}";
+			}
+		}
+		return "{project_del_error}";
+	}
+
+	@RequestMapping(value = "manager_temp_update.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String updateTemp(Long projectId, String projectUrl,
+			String projectText, String projectTopic) {
+		if (projectId != null && projectUrl != null && projectText != null
+				&& projectText != null) {
+			WebsiteTemp project = tempService.getById(projectId);
+			if(project!=null){
+				project.setTempText(projectText);
+				project.setTempTopic(projectTopic);
+				project.setTempUrl(projectUrl);
+				project.setTempId(projectId);
+				tempService.updateTemp(project);
 				return "{project_update_success}";
 			}
 		}

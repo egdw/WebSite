@@ -91,6 +91,8 @@
 				/js/** = anon
 				/login/** = anon
 				/project/MyProject.do = anon
+				/funnyView.do = anon
+				/tempView.do = anon
 				/WEB-INF/** =anon
 				/index.jsp = anon
 				/login/logout.do = anon
@@ -100,7 +102,6 @@
 				/unauthorized.jsp = anon
 				/login.jsp = anon
 				/*.jar = anon
-				# everything else requires authentication:
 				/** = authc
 			</value>
 		</property>

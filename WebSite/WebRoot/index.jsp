@@ -44,8 +44,8 @@
 							<ul class="icon-navigation">
 								<li><a href="project/MyProject.do">我的作品</a></li>
 								<li><a href="#">我的博客</a></li>
-								<li><a href="#">趣味网页</a></li>
-								<li><a href="#">临时网页</a></li>
+								<li><a href="funnyView.do">趣味网页</a></li>
+								<li><a href="tempView.do">临时网页</a></li>
 							</ul>
 						</li>
 					</ul>
