@@ -28,23 +28,6 @@ body {
 <body>
 	<button class="btn btn-primary btn-lg" id="wabutton"
 		style="display:none;" data-toggle="modal" data-target="#alert_modal"></button>
-	<div class="modal fade" id="alert_modal" tabindex="-1" role="dialog"
-		aria-labelledby="watitle" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</button>
-					<span class="modal-title" style="font-size:21px;" id="watitle">提示信息</span>
-				</div>
-				<div class="modal-body" id="watext" style="word-wrap: break-word">未指定的异常</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="waclose"
-						data-dismiss="modal" style="width:100px;">关闭</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<link rel="stylesheet"
 		href="<%=request.getContextPath()%>/css/admin_index/ui.css">
 	<link rel="stylesheet"
@@ -69,7 +52,7 @@ body {
 				<span class="sr-only">后台管理</span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="http://love.kfj.cc/index.php">后台管理</a>
+			<a class="navbar-brand" href="<%=request.getContextPath()%>/login/manager">后台管理</a>
 		</div>
 
 		<div class="collapse navbar-collapse"

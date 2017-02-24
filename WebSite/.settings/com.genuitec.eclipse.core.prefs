@@ -1,3 +1,3 @@
 eclipse.preferences.version=1
-validator.Checked=WebRoot/css/admin_project_manager_files/jquery.min.js,WebRoot/WEB-INF/project/list.jsp,WebRoot/AboutMy/js/respond.min.js,WebRoot/css/admin_index/jquery.min.js,WebRoot/WEB-INF/admin/admin_project_manager.jsp,WebRoot/AboutMy/js/jquery.min.js,WebRoot/WEB-INF/project/list.htm,WebRoot/AboutMy/js/jquery.waypoints.min.js,WebRoot/AboutMy/index.html,WebRoot/index.jsp,WebRoot/login/login.jsp,WebRoot/WEB-INF/admin/admin_index.jsp
+validator.Checked=WebRoot/css/admin_project_manager_files/jquery.min.js,WebRoot/WEB-INF/project/list.jsp,WebRoot/AboutMy/js/respond.min.js,WebRoot/css/admin_index/jquery.min.js,WebRoot/WEB-INF/admin/admin_project_manager.jsp,WebRoot/WEB-INF/project/list.htm,WebRoot/WEB-INF/admin/admin_person_setting.jsp,WebRoot/index.jsp,WebRoot/AboutMy/js/jquery.min.js,WebRoot/AboutMy/js/jquery.waypoints.min.js,WebRoot/AboutMy/index.html,WebRoot/login/login.jsp,WebRoot/WEB-INF/admin/admin_index.jsp
 validator.Unchecked=

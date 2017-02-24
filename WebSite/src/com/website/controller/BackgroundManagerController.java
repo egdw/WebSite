@@ -77,7 +77,6 @@ public class BackgroundManagerController {
 	@RequestMapping(value = "manager_project_delete.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String delProject(Long projectId) {
-		System.out.println(projectId);
 		if (projectId != null) {
 			boolean del = projectService.del(projectId);
 			if (del) {
@@ -85,5 +84,24 @@ public class BackgroundManagerController {
 			}
 		}
 		return "{project_del_error}";
+	}
+
+	@RequestMapping(value = "manager_project_update.do", method = RequestMethod.POST)
+	@ResponseBody
+	public String updateProject(Long projectId, String projectUrl,
+			String projectText, String projectTopic) {
+		if (projectId != null && projectUrl != null && projectText != null
+				&& projectText != null) {
+			WebsiteProject project = projectService.getById(projectId);
+			if(project!=null){
+				project.setProjectText(projectText);
+				project.setProjectTopic(projectTopic);
+				project.setProjectUrl(projectUrl);
+				project.setProjectId(projectId);
+				projectService.update(project);
+				return "{project_update_success}";
+			}
+		}
+		return "{project_update_error}";
 	}
 }

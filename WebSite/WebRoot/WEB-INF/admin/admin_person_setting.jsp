@@ -56,11 +56,11 @@ body {
                         <li class=""><a href="<%=request.getContextPath()%>/login/manager"><span
                                 class="glyphicon glyphicon-home"></span> 首页</a></li>
                         <li class="active"><a
-                            href="http://love.kfj.cc/index.php?mod=set"><span
+                            href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
                                 class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
                         <li class=""><a
-                            href="http://love.kfj.cc/index.php?mod=baiduid"><span
-                                class="glyphicon glyphicon-link"></span> 百度账号管理</a></li>
+                            href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
+                                class="glyphicon glyphicon-link"></span> 项目管理</a></li>
                         <li class=""><a
                             href="http://love.kfj.cc/index.php?mod=showtb"><span
                                 class="glyphicon glyphicon-calendar"></span> 云签到设置和日志</a></li>
@@ -102,11 +102,11 @@ body {
                         <li class=""><a href="<%=request.getContextPath()%>/login/manager"><span
                                 class="glyphicon glyphicon-home"></span> 首页</a></li>
                         <li class="active"><a
-                            href="http://love.kfj.cc/index.php?mod=set"><span
+                            href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
                                 class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
                         <li class=""><a
-                            href="http://love.kfj.cc/index.php?mod=baiduid"><span
-                                class="glyphicon glyphicon-link"></span> 百度账号管理</a></li>
+                            href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
+                                class="glyphicon glyphicon-link"></span>项目管理</a></li>
                         <li class=""><a
                             href="http://love.kfj.cc/index.php?mod=showtb"><span
                                 class="glyphicon glyphicon-calendar"></span> 云签到设置和日志</a></li>

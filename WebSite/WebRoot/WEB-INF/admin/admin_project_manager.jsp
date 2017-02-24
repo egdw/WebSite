@@ -46,23 +46,6 @@ body {
 <body>
 	<button class="btn btn-primary btn-lg" id="wabutton"
 		style="display:none;" data-toggle="modal" data-target="#alert_modal"></button>
-	<div class="modal fade" id="alert_modal" tabindex="-1" role="dialog"
-		aria-labelledby="watitle" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">×</button>
-					<span class="modal-title" style="font-size:21px;" id="watitle">提示信息</span>
-				</div>
-				<div class="modal-body" id="watext" style="word-wrap: break-word">未指定的异常</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="waclose"
-						data-dismiss="modal" style="width:100px;">关闭</button>
-				</div>
-			</div>
-		</div>
-	</div>
 	<link rel="stylesheet"
 		href="<%=request.getContextPath()%>/css/admin_project_manager_files/ui.css">
 	<link rel="stylesheet"
@@ -87,7 +70,7 @@ body {
 				<span class="sr-only">后台管理</span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="http://love.kfj.cc/index.php">后台管理</a>
+			<a class="navbar-brand" href="<%=request.getContextPath()%>/login/manager">后台管理</a>
 		</div>
 
 		<div class="collapse navbar-collapse"
@@ -98,13 +81,13 @@ body {
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-list-alt"></span> 功能菜单 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li class=""><a href="http://love.kfj.cc/index.php"><span
+						<li class=""><a href="<%=request.getContextPath()%>/login/manager"><span
 								class="glyphicon glyphicon-home"></span> 首页</a></li>
-						<li class=""><a href="http://love.kfj.cc/index.php?mod=set"><span
+						<li class=""><a href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
 						<li class="active"><a
-							href="http://love.kfj.cc/index.php?mod=baiduid"><span
-								class="glyphicon glyphicon-link"></span> 百度账号管理</a></li>
+							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
+								class="glyphicon glyphicon-link"></span>项目管理</a></li>
 						<li class=""><a
 							href="http://love.kfj.cc/index.php?mod=showtb"><span
 								class="glyphicon glyphicon-calendar"></span> 云签到设置和日志</a></li>
@@ -142,12 +125,12 @@ body {
 					role="complementary">
 					<ul class="nav bs-sidenav">
 						<li></li>
-						<li class=""><a href="http://love.kfj.cc/index.php"><span
+						<li class=""><a href="<%=request.getContextPath()%>/login/manager"><span
 								class="glyphicon glyphicon-home"></span> 首页</a></li>
-						<li class=""><a href="http://love.kfj.cc/index.php?mod=set"><span
+						<li class=""><a href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
 						<li class="active"><a
-							href="http://love.kfj.cc/index.php?mod=baiduid"><span
+							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
 								class="glyphicon glyphicon-link"></span> 项目管理</a></li>
 						<li class=""><a
 							href="http://love.kfj.cc/index.php?mod=showtb"><span
@@ -192,6 +175,7 @@ body {
 							<th>项目编号</th>
 							<th>项目标题</th>
 							<th>项目内容</th>
+							<th>项目地址</th>
 							<th>创建时间</th>
 							<th>项目封面</th>
 							<th>操作</th>
@@ -200,14 +184,15 @@ body {
 									<td>${index.projectId}</td>
 									<td>${index.projectTopic}</td>
 									<td>${index.projectText}</td>
-									<%-- <td>${index.projectCreateDate}</td> --%>
+									<td>${index.projectUrl}</td>
 									<td><fmt:formatDate value="${index.projectCreateDate}"
 											pattern="yyyy-MM-dd HH:mm:ss" /></td>
 									<td><img
 										src="http://q.qlogo.cn/headimg_dl?dst_uin=378759617&spec=640&img_type=jpg"
 										width="50" height="50"></td>
 									<td><input type="button" class="project_del_btn"
-										value="删除"><br /> <input type="button"
+										value="删除"><br /> 
+									<input type="button"
 										class="project_update_btn" value="更新"></td>
 								</tr>
 							</c:forEach>
@@ -235,7 +220,7 @@ body {
 				<div class="tab-pane fade" id="adminid" style="display: none;">
 					<a name="#newid"></a>
 					<div class="alert alert-warning" role="alert" id="addbdid_msg">
-						项目请输入完整的路径,例如https://www.baidu.com<br />如果不需要上传头像,不用上传图片.
+						项目请输入完整的路径,例如https://www.baidu.com<br />
 					</div>
 					<form method="post" id="addbdid_form"
 						action="manager_project_add.do">
@@ -265,12 +250,43 @@ body {
 						<button data-remodal-action="close" class="remodal-close"
 							aria-label="Close"></button>
 						<div>
-							<h2 id="modal1Title" 项目提交</h2>
+							<h2 id="modal1Title">项目提交</h2>
 							<p id="modal1Desc">确定要提交项目吗?</p>
 						</div>
 						<br>
 						<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
 						<button data-remodal-action="confirm" id="project_add_accpet_btn"
+							class="remodal-confirm">OK</button>
+					</div>
+					<div class="remodal" data-remodal-id="modalupdate" role="dialog"
+						aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+						<button data-remodal-action="close" class="remodal-close"
+							aria-label="Close"></button>
+						<div>
+							<form id="project_update_form">
+								<input type="hidden" id="project_update_id" name="projectId">
+								<div class="input-group">
+									<span class="input-group-addon">项目标题</span> <input type="text"
+										class="form-control" id="project_update_topic" name="projectTopic"
+										placeholder="请输入项目标题" required="">
+								</div>
+								<br>
+								<div class="input-group">
+									<span class="input-group-addon">项目内容</span> <input type="text"
+										class="form-control" name="projectText" id="project_update_text"
+										placeholder="请输入项目内容" required="">
+								</div>
+								<br>
+								<div class="input-group">
+									<span class="input-group-addon">项目地址</span> <input type="text"
+										class="form-control" name="projectUrl" id="project_update_url"
+										placeholder="例如https://www.baidu.com" required="">
+								</div>
+							</form>
+						</div>
+						<br>
+						<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+						<button data-remodal-action="confirm" id="project_update_accpet_btn"
 							class="remodal-confirm">OK</button>
 					</div>
 					<br> <br>
@@ -318,6 +334,37 @@ body {
 									alert("删除项目失败");
 								}
 							});
+						});
+						$("#project_update_accpet_btn").click(function(){
+							$.ajax({
+								type:'post',
+								url:'manager_project_update.do',
+								data:$("#project_update_form").serialize(),
+								success: function(data) {
+									console.log(data);
+									if(data =='{project_update_success}'){
+										alert("更新项目成功,请刷新界面");
+									}else{
+										alert("更新项目失败");  
+									}
+								},
+								error:function(e){  
+							          alert("更新项目失败");  
+							    }  
+							}); 
+						});
+						$(".project_update_btn").click(function(){
+							var tr = $(this).parent().parent();
+							var tds = $(this).parent().parent().children();
+							var id = tds.eq(0).html();
+							var topic = tds.eq(1).html();
+							var text = tds.eq(2).html();
+							var url = tds.eq(3).html();
+							window.location.href="#modalupdate";
+							$("#project_update_id").val(id);
+							$("#project_update_topic").val(topic);
+							$("#project_update_text").val(text);
+							$("#project_update_url").val(url);
 						});
 					});
 				</script>
