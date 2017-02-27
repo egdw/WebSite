@@ -98,6 +98,7 @@
 				/index.jsp = anon
 				/login/logout.do = anon
 				/login/manager =anon
+				/blog/** =anon
 				/ = anon
 				/login/Login.do = anon
 				/unauthorized.jsp = anon
