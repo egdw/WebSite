@@ -85,13 +85,13 @@ body {
 								class="glyphicon glyphicon-home"></span> 首页</a></li>
 						<li class=""><a href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
-						<li class="active"><a
+						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
-								class="glyphicon glyphicon-link"></span>项目管理</a></li>
+								class="glyphicon glyphicon-link"></span> 项目管理</a></li>
 						<li class=""><a
 							href="http://love.kfj.cc/index.php?mod=showtb"><span
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
+						<li class="active"><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
 						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
 								class="glyphicon glyphicon-ban-circle"></span> 循环封禁</a></li>
@@ -129,13 +129,13 @@ body {
 								class="glyphicon glyphicon-home"></span> 首页</a></li>
 						<li class=""><a href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
-						<li class="active"><a
+						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
 								class="glyphicon glyphicon-link"></span> 项目管理</a></li>
 						<li class=""><a
 							href="http://love.kfj.cc/index.php?mod=showtb"><span
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
+						<li class="active"><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
 						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
 								class="glyphicon glyphicon-ban-circle"></span> 待定</a></li>
@@ -171,11 +171,11 @@ body {
 				<div class="tab-pane fade active in" id="newid">
 					<a name="#adminid"></a>
 					<div class="projects_list">
-						<table border="1">
+						<table border="1" >
 							<th>项目编号</th>
 							<th>项目标题</th>
 							<th>项目内容</th>
-							<th>项目地址</th>
+							<th>网页地址</th>
 							<th>创建时间</th>
 							<th>项目封面</th>
 							<th>操作</th>
@@ -220,10 +220,12 @@ body {
 				<div class="tab-pane fade" id="adminid" style="display: none;">
 					<a name="#newid"></a>
 					<div class="alert alert-warning" role="alert" id="addbdid_msg">
-						项目请输入完整的路径,例如https://www.baidu.com<br />
+						首页名称请输入主页的文件名,比如你的主页名为index.html,请填写完整的名称.<br />
+						注意!上传的文件需要是<b>压缩文件</b>!并且文件里不要出现与主页文件名<b>相同</b>的文件.<br/>
+						只支持一种格式的压缩文件(zip)
 					</div>
 					<form method="post" id="addbdid_form"
-						action="manager_temp_add.do">
+						action="manager_temp_add.do" enctype="multipart/form-data">
 						<div class="input-group">
 							<span class="input-group-addon">项目标题</span> <input type="text"
 								class="form-control" id="project_topic" name="project_topic"
@@ -231,15 +233,21 @@ body {
 						</div>
 						<br>
 						<div class="input-group">
-							<span class="input-group-addon">项目内容</span> <input type="text"
+							<span class="input-group-addon">项目简介</span> <input type="text"
 								class="form-control" name="project_text" id="project_text"
 								placeholder="请输入项目内容" required="">
 						</div>
 						<br>
 						<div class="input-group">
-							<span class="input-group-addon">项目地址</span> <input type="text"
-								class="form-control" name="project_url" id="project_url"
-								placeholder="例如https://www.baidu.com" required="">
+							<span class="input-group-addon">首页名称</span> <input type="text"
+								class="form-control" name="project_name" id="project_name"
+								placeholder="例如index.html" required="">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">文件附件</span> <input type="file"
+								class="form-control" name="project_file" id="project_file"
+								placeholder="例如index.html" required="" accept=".zip">
 						</div>
 						<br /> <a href="#modal"> <input type="button"
 							class="btn btn-primary" value="提交">
@@ -277,11 +285,6 @@ body {
 										placeholder="请输入项目内容" required="">
 								</div>
 								<br>
-								<div class="input-group">
-									<span class="input-group-addon">项目地址</span> <input type="text"
-										class="form-control" name="projectUrl" id="project_update_url"
-										placeholder="例如https://www.baidu.com" required="">
-								</div>
 							</form>
 						</div>
 						<br>
@@ -294,7 +297,8 @@ body {
 				<script type="text/javascript">
 					$(document).ready(function(){
 						$("#project_add_accpet_btn").click(function(){
-							 $.ajax({
+							$("#addbdid_form").submit();
+							/*  $.ajax({
 								type:'post',
 								url:'manager_temp_add.do',
 								data:$("#addbdid_form").serialize(),
@@ -309,7 +313,7 @@ body {
 								error:function(e){  
 							          alert("添加项目失败");  
 							    }  
-							}); 
+							});  */
 						});	
 						$(".project_del_btn").click(function(){
 							var tr = $(this).parent().parent();

@@ -103,11 +103,9 @@ public class ZipTools {
 			file = new File(fileSavePath + entry.getName());
 			if (entry.isDirectory()) {
 				// 目录
-				System.out.println("create dir : " + file.getPath());
 				file.mkdirs();
 			} else {
 				// 文件
-				System.out.println("create file: " + file.getPath());
 				fos = new FileOutputStream(file);
 				while ((b = zis.read()) != -1) {
 					fos.write(b);
@@ -120,19 +118,6 @@ public class ZipTools {
 		if (isDelete) {
 			new File(zipFilePath).delete();
 		}
-
-		System.out.println("unZip Done.");
-
 	}
 
-	public static void main(String[] args) {
-
-		ZipTools zipTools = new ZipTools();
-		try {
-			zipTools.decompress("E://test.zip", "E://homee", false);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
 }

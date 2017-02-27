@@ -93,6 +93,7 @@
 				/project/MyProject.do = anon
 				/funnyView.do = anon
 				/tempView.do = anon
+				/upload/** =anon
 				/WEB-INF/** =anon
 				/index.jsp = anon
 				/login/logout.do = anon

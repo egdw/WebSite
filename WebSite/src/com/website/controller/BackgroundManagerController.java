@@ -221,60 +221,68 @@ public class BackgroundManagerController {
 			@RequestParam("project_name") String project_name,
 			@RequestParam("project_file") MultipartFile project_file)
 			throws Exception {
-		WebsiteTemp project = new WebsiteTemp();
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
-				.getRequestAttributes()).getRequest();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
-				"yyyyMMddHHmmssSSS");
-		Subject subject = SecurityUtils.getSubject();
-		String string = simpleDateFormat.format(new Date())
-				+ subject.getPrincipal();
-		String path = request.getRealPath("upload/temp_temp/" + string);
-		File file = new File(path);
-		if (!file.exists()) {
-			file.mkdirs();
-		}
-		String originalFilename = project_file.getOriginalFilename();
-		if (!originalFilename.substring(originalFilename.lastIndexOf(".")).equals(".zip")) {
-			throw new IllegalArgumentException("format not true");
-		}
-		String contentType = project_file.getContentType();
-		InputStream stream = project_file.getInputStream();
-		byte[] bytes = new byte[(int) project_file.getSize()];
-		int len = -1;
-		File uploadFile = new File(file.getAbsolutePath(), originalFilename);
-		FileOutputStream fileOutputStream = new FileOutputStream(uploadFile);
-		while ((len = stream.read(bytes)) != -1) {
-			fileOutputStream.write(bytes);
-			fileOutputStream.flush();
-		}
-		stream.close();
-		fileOutputStream.close();
-		ZipTools zipTools = new ZipTools();
-		File decompressFile = new File(request.getRealPath("upload/temp/"
-				+ string));
-		if (!file.exists()) {
-			file.mkdirs();
-		}
-		zipTools.decompress(uploadFile.getAbsolutePath(),
-				decompressFile.getAbsolutePath(), false);
-		File[] listFiles = decompressFile.listFiles();
-		File indexFile = findIndexFile(listFiles, project_name);
-		if (indexFile != null) {
-			project.setTempText(project_text);
-			project.setTempTopic(project_topic);
-			String string2 = indexFile.getAbsolutePath();
-			int j = string2.lastIndexOf("upload/temp/");
-			project.setTempUrl(indexFile.getAbsolutePath().substring(j));
-			project.setTempCreateDate(new Date());
-			boolean b = tempService.insertTemp(project);
-			if (b) {
-				return "{add_project_true}";
+		String string = null;
+		try {
+			WebsiteTemp project = new WebsiteTemp();
+			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+					.getRequestAttributes()).getRequest();
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+					"yyyyMMddHHmmssSSS");
+			Subject subject = SecurityUtils.getSubject();
+			string = simpleDateFormat.format(new Date())
+					+ subject.getPrincipal();
+			String path = request.getRealPath("upload/temp_temp/" + string);
+			File file = new File(path);
+			if (!file.exists()) {
+				file.mkdirs();
 			}
-			return "{add_project_error}";
-		} else {
-			throw new FileNotFoundException("file is not find");
+			String originalFilename = project_file.getOriginalFilename();
+			if (!originalFilename.substring(originalFilename.lastIndexOf(".")).equals(".zip")) {
+				throw new IllegalArgumentException("format not true");
+			}
+			String contentType = project_file.getContentType();
+			InputStream stream = project_file.getInputStream();
+			byte[] bytes = new byte[(int) project_file.getSize()];
+			int len = -1;
+			File uploadFile = new File(file.getAbsolutePath(), originalFilename);
+			FileOutputStream fileOutputStream = new FileOutputStream(uploadFile);
+			while ((len = stream.read(bytes)) != -1) {
+				fileOutputStream.write(bytes);
+				fileOutputStream.flush();
+			}
+			stream.close();
+			fileOutputStream.close();
+			ZipTools zipTools = new ZipTools();
+			File decompressFile = new File(request.getRealPath("upload/temp/"
+					+ string));
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+			zipTools.decompress(uploadFile.getAbsolutePath(),
+					decompressFile.getAbsolutePath(), false);
+			File[] listFiles = decompressFile.listFiles();
+			File indexFile = findIndexFile(listFiles, project_name);
+			if (indexFile != null) {
+				project.setTempText(project_text);
+				project.setTempTopic(project_topic);
+				String string2 = indexFile.getAbsolutePath();
+				int j = string2.lastIndexOf("upload/temp/");
+				project.setTempUrl(indexFile.getAbsolutePath().substring(j));
+				project.setTempCreateDate(new Date());
+				boolean b = tempService.insertTemp(project);
+				if (b) {
+					return "{add_project_true}";
+				}
+				return "{add_project_error}";
+			} else {
+				tempService.delTempFileByName(string);
+				throw new FileNotFoundException("file is not find");
+			}
+		} catch (Exception e) {
+			tempService.delTempFileByName(string);
+			e.printStackTrace();
 		}
+		return "{add_project_error}";
 	}
 
 	private File findIndexFile(File[] file, String fileName) {
