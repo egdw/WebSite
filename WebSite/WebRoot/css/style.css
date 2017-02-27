@@ -355,7 +355,7 @@ body {
     padding: 17px 28px;
 }
 .f-left {
-    width: 33.08%;
+    width: 32.99%;
 }
 .text h2 {
     font-size: 23px;
@@ -425,7 +425,7 @@ ul.icon-navigation li:before {
 }
 @media(max-width:414px){
 .f-left {
-    width: 33.04%;
+    width: 33.01%;
 }
 }
 @media(max-width:384px){
@@ -433,7 +433,7 @@ ul.icon-navigation li:before {
     padding: 17px 18px;
 }
 .f-left {
-    width: 33%;
+    width: 32.99%;
 }
 }
 @media(max-width:320px){
@@ -476,7 +476,7 @@ ul.icon-navigation li:before {
     padding: 13px 22px;
 }
 .f-left {
-    width: 33.04%;
+    width: 33.01%;
 }
 ul.icon-navigation li:before {
     right: 186px;
