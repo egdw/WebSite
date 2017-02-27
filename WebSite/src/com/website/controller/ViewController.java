@@ -46,14 +46,4 @@ public class ViewController {
 		return "/project/temp_list";
 	}
 	
-	
-	/**
-	 * 进入博客主页
-	 */
-	@RequestMapping(value="blog.do")
-	public void myBlogView(){
-		
-	}
-	
-	
 }
