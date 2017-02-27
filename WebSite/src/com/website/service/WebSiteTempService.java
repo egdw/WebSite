@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.website.entites.WebsiteFunny;
 import com.website.entites.WebsiteTemp;
 import com.website.mapper.WebsiteTempMapper;
 import com.website.utils.ConstantClass;

@@ -149,15 +149,68 @@ public class BackgroundManagerController {
 	@ResponseBody
 	public String addfunny(@RequestParam("project_topic") String project_topic,
 			@RequestParam("project_text") String project_text,
-			@RequestParam("project_url") String project_url) {
-		WebsiteFunny project = new WebsiteFunny();
-		project.setFunnyText(project_text);
-		project.setFunnyTopic(project_topic);
-		project.setFunnyUrl(project_url);
-		project.setFunnyCreateDate(new Date());
-		boolean b = funnyService.insertFunny(project);
-		if (b) {
-			return "{add_project_true}";
+			@RequestParam("project_name") String project_name,
+			@RequestParam("project_file")MultipartFile project_file) {
+		String string = null;
+		try {
+			WebsiteFunny project = new WebsiteFunny();
+			HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+					.getRequestAttributes()).getRequest();
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+					"yyyyMMddHHmmssSSS");
+			Subject subject = SecurityUtils.getSubject();
+			string = simpleDateFormat.format(new Date())
+					+ subject.getPrincipal();
+			String path = request.getRealPath("upload/funny_temp/" + string);
+			File file = new File(path);
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+			String originalFilename = project_file.getOriginalFilename();
+			if (!originalFilename.substring(originalFilename.lastIndexOf(".")).equals(".zip")) {
+				throw new IllegalArgumentException("format not true");
+			}
+			String contentType = project_file.getContentType();
+			InputStream stream = project_file.getInputStream();
+			byte[] bytes = new byte[(int) project_file.getSize()];
+			int len = -1;
+			File uploadFile = new File(file.getAbsolutePath(), originalFilename);
+			FileOutputStream fileOutputStream = new FileOutputStream(uploadFile);
+			while ((len = stream.read(bytes)) != -1) {
+				fileOutputStream.write(bytes);
+				fileOutputStream.flush();
+			}
+			stream.close();
+			fileOutputStream.close();
+			ZipTools zipTools = new ZipTools();
+			File decompressFile = new File(request.getRealPath("upload/funny/"
+					+ string));
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+			zipTools.decompress(uploadFile.getAbsolutePath(),
+					decompressFile.getAbsolutePath(), false);
+			File[] listFiles = decompressFile.listFiles();
+			File indexFile = findIndexFile(listFiles, project_name);
+			if (indexFile != null) {
+				project.setFunnyText(project_text);
+				project.setFunnyTopic(project_topic);
+				String string2 = indexFile.getAbsolutePath();
+				int j = string2.lastIndexOf("upload/funny/");
+				project.setFunnyUrl(indexFile.getAbsolutePath().substring(j));
+				project.setFunnyCreateDate(new Date());
+				boolean b = funnyService.insertFunny(project);
+				if (b) {
+					return "{add_project_true}";
+				}
+				return "{add_project_error}";
+			} else {
+				funnyService.delFunnyFileByName(string);
+				throw new FileNotFoundException("file is not find");
+			}
+		} catch (Exception e) {
+			funnyService.delFunnyFileByName(string);
+			e.printStackTrace();
 		}
 		return "{add_project_error}";
 	}
@@ -176,15 +229,14 @@ public class BackgroundManagerController {
 
 	@RequestMapping(value = "manager_funny_update.do", method = RequestMethod.POST)
 	@ResponseBody
-	public String updateFunny(Long projectId, String projectUrl,
+	public String updateFunny(Long projectId,
 			String projectText, String projectTopic) {
-		if (projectId != null && projectUrl != null && projectText != null
+		if (projectId != null && projectText != null
 				&& projectText != null) {
 			WebsiteFunny project = funnyService.getById(projectId);
 			if (project != null) {
 				project.setFunnyText(projectText);
 				project.setFunnyTopic(projectTopic);
-				project.setFunnyUrl(projectUrl);
 				project.setFunnyId(projectId);
 				funnyService.updateFunny(project);
 				return "{project_update_success}";
@@ -213,7 +265,6 @@ public class BackgroundManagerController {
 		return "admin/admin_temp_manager";
 	}
 
-	@SuppressWarnings({ "deprecation", "deprecation", "resource" })
 	@RequestMapping(value = "manager_temp_add.do", method = RequestMethod.POST)
 	@ResponseBody
 	public String addTemp(@RequestParam("project_topic") String project_topic,
@@ -284,7 +335,7 @@ public class BackgroundManagerController {
 		}
 		return "{add_project_error}";
 	}
-
+	
 	private File findIndexFile(File[] file, String fileName) {
 		for (int i = 0; i < file.length; i++) {
 			if (file[i].isDirectory()) {
