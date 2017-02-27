@@ -247,7 +247,7 @@ body {
 						<div class="input-group">
 							<span class="input-group-addon">文件附件</span> <input type="file"
 								class="form-control" name="project_file" id="project_file"
-								placeholder="例如index.html" required="" accept=".zip">
+								placeholder="请上传格式为zip的压缩文件" required="" accept=".zip">
 						</div>
 						<br /> <a href="#modal"> <input type="button"
 							class="btn btn-primary" value="提交">
