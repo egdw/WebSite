@@ -222,8 +222,8 @@ body {
 					<div class="alert alert-warning" role="alert" id="addbdid_msg">
 						项目请输入完整的路径,例如https://www.baidu.com<br />
 					</div>
-					<form method="post" id="addbdid_form"
-						action="manager_project_add.do">
+					<form method="post" id="addbdid_form" enctype="multipart/form-data"
+						action="manager_funny_add.do">
 						<div class="input-group">
 							<span class="input-group-addon">项目标题</span> <input type="text"
 								class="form-control" id="project_topic" name="project_topic"
@@ -231,15 +231,21 @@ body {
 						</div>
 						<br>
 						<div class="input-group">
-							<span class="input-group-addon">项目内容</span> <input type="text"
+							<span class="input-group-addon">项目简称</span> <input type="text"
 								class="form-control" name="project_text" id="project_text"
 								placeholder="请输入项目内容" required="">
 						</div>
 						<br>
 						<div class="input-group">
-							<span class="input-group-addon">项目地址</span> <input type="text"
-								class="form-control" name="project_url" id="project_url"
+							<span class="input-group-addon">首页地址</span> <input type="text"
+								class="form-control" name="project_name" id="project_name"
 								placeholder="例如https://www.baidu.com" required="">
+						</div>
+						<br/>
+						<div class="input-group">
+							<span class="input-group-addon">文件附件</span> <input type="file"
+								class="form-control" name="project_file" id="project_file"
+								placeholder="请上传格式为zip的压缩文件" required="" accept=".zip">
 						</div>
 						<br /> <a href="#modal"> <input type="button"
 							class="btn btn-primary" value="提交">
@@ -277,11 +283,6 @@ body {
 										placeholder="请输入项目内容" required="">
 								</div>
 								<br>
-								<div class="input-group">
-									<span class="input-group-addon">项目地址</span> <input type="text"
-										class="form-control" name="projectUrl" id="project_update_url"
-										placeholder="例如https://www.baidu.com" required="">
-								</div>
 							</form>
 						</div>
 						<br>
@@ -294,7 +295,8 @@ body {
 				<script type="text/javascript">
 					$(document).ready(function(){
 						$("#project_add_accpet_btn").click(function(){
-							 $.ajax({
+							$("#addbdid_form").submit();
+							/*  $.ajax({
 								type:'post',
 								url:'manager_funny_add.do',
 								data:$("#addbdid_form").serialize(),
@@ -309,7 +311,7 @@ body {
 								error:function(e){  
 							          alert("添加项目失败");  
 							    }  
-							}); 
+							});  */
 						});	
 						$(".project_del_btn").click(function(){
 							var tr = $(this).parent().parent();
