@@ -90,9 +90,9 @@ body {
 								class="glyphicon glyphicon-link"></span>项目管理</a></li>
 						<li class="active"><a
 							href="http://love.kfj.cc/index.php?mod=showtb"><span
-								class="glyphicon glyphicon-calendar"></span>趣味管理</a></li>
+								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
 						<li><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
-								class="glyphicon glyphicon-exclamation-sign"></span>临时管理</a></li>
+								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
 						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
 								class="glyphicon glyphicon-ban-circle"></span> 循环封禁</a></li>
 						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_post"><span

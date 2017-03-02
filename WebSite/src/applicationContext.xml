@@ -104,6 +104,8 @@
 				/unauthorized.jsp = anon
 				/login.jsp = anon
 				/*.jar = anon
+				/ckeditor/** =anon
+				/ckfinder/** =anon
 				/** = authc
 			</value>
 		</property>

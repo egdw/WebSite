@@ -52,12 +52,12 @@
 				</li>
 				<li class="menu">
 					<ul>
-						<li class="button"><a href="#">概述<span class="icon">
+						<li class="button"><a href="#">简述<span class="icon">
 							</span></a></li>
 						<li class="dropdown">
 							<ul class="icon-navigation">
 								<li><a href="#">暂定</a></li>
-								<li><a href="#">暂定</a></li>
+								<li><a href="<%=request.getContextPath()%>/login/manager">管理</a></li>
 								<li><a href="./AboutMy/index.html">关于我</a></li>
 							</ul>
 						</li>

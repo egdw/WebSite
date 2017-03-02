@@ -24,11 +24,15 @@
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
 		</table> -->
-		<table tableName="website_temp" enableCountByExample="false"
+		<table tableName="website_album" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
 		</table>
-		<table tableName="website_funny" enableCountByExample="false"
+		<table tableName="website_blog" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+		<table tableName="website_comment" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false">
 		</table>

@@ -22,28 +22,28 @@
 <nav class="navbar navbar-default navbar-static-top">
 	<div class="container">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="http://kkys.online/blog">恶搞大王的博客</a>
+			<a class="navbar-brand" href="<%=request.getContextPath()%>/blog/">恶搞大王的博客</a>
 		</div>
 
 		<div class="collapse navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-				<li><a href="http://kkys.online/blog">首页</a></li>
+				<li><a href="<%=request.getContextPath()%>/blog/">首页</a></li>
 				<li class="dropdown"><a href="http://kkys.online/blog/#"
 					class="dropdown-toggle" data-toggle="dropdown" role="button"
 					aria-haspopup="true" aria-expanded="false">分类 <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="http://kkys.online/blog/searchByType/0">学习</a></li>
+						<li><a href="type">学习</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="http://kkys.online/blog/searchByType/1">生活</a></li>
+						<li><a href="type">生活</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="http://kkys.online/blog/searchByType/2">随笔</a></li>
+						<li><a href="type">随笔</a></li>
 					</ul></li>
 				<li><a href="<%=request.getContextPath()%>/blog/image">相册</a></li>
 				<li><a href="http://kkys.online/blog/#" data-toggle="modal"
 					data-target="#about-modal">关于</a></li>
-				<li><a href="http://kkys.online/blog/adminHtml">管理</a></li>
+				<li><a href="<%=request.getContextPath()%>/login/manager">管理</a></li>
 			</ul>
 			<div style="float: right;">
 				<div class="input-group" style="padding-top: 9px">
