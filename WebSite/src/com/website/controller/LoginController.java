@@ -69,7 +69,7 @@ public class LoginController {
 	public String logout() {
 		Subject subject = SecurityUtils.getSubject();
 		subject.logout();
-		return "redirect:/project/MyProject.do";
+		return "redirect:/login/login.jsp";
 	}
 	
 	/*
