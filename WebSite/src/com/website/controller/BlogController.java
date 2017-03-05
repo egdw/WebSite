@@ -21,7 +21,9 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.website.entites.WebsiteAlbum;
 import com.website.entites.WebsiteBlog;
+import com.website.service.WebSiteAlbumService;
 import com.website.service.WebSiteBlogService;
 import com.website.utils.UUIDUtils;
 
@@ -30,12 +32,25 @@ import com.website.utils.UUIDUtils;
 public class BlogController {
 	@Autowired
 	private WebSiteBlogService service;
-
+	@Autowired
+	private WebSiteAlbumService albumService;
 	/**
 	 * 进入博客主页
 	 */
 	@RequestMapping(value = "/")
-	public String myBlogView() {
+	public String myBlogView(@RequestParam(required = false) Integer pageNum,
+			Map<String, Object> map) {
+		if (pageNum == null) {
+			pageNum = 0;
+		}
+		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum,null);
+		Integer pageCount = service.getPageNum(null);
+		//从数据库中获取最新的钱五张图片
+		ArrayList<WebsiteAlbum> albumbyPage = albumService.selectAlbumbyPage(0, 5);
+		map.put("list", list);
+		map.put("pageCount", pageCount);
+		map.put("currentPage", pageNum);
+		map.put("images", albumbyPage);
 		return "/blog/blog_index";
 	}
 
@@ -43,7 +58,15 @@ public class BlogController {
 	 * 进入博客的照片
 	 */
 	@RequestMapping("/image")
-	public String entryBlogImage() {
+	public String entryBlogImage(Map<String, Object> map,Integer pageNum) {
+		if(pageNum==null){
+			pageNum = 0;
+		}
+		ArrayList<WebsiteAlbum> list = albumService.selectAlbumbyPage(pageNum, 16);
+		Integer num = albumService.getPageNum(16);
+		map.put("list", list);
+		map.put("pageCount", num);
+		map.put("currentPage", pageNum);
 		return "/blog/blog_album";
 	}
 
@@ -56,25 +79,42 @@ public class BlogController {
 	 *            页码
 	 */
 	@RequestMapping("type")
-	public String entryBlogType(@RequestParam(required = false) Long typeId,
-			@RequestParam(required = false) Long pageNum) {
-		return "/blog/blog_type";
-	}
-	
-	/**
-	 * 进入博客管理界面
-	 * @return
-	 */
-	@RequestMapping("admin")
-	public String entryBlogAdmin(Map<String, Object> map,@RequestParam(required=false)Integer pageNum){
+	public String entryBlogType(@RequestParam(required = false) Integer typeId,
+			@RequestParam(required = false) Integer pageNum,Map<String, Object> map) {
 		if(pageNum==null){
 			pageNum = 0;
 		}
-		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum);
+		if(typeId==null){
+			typeId=0;
+		}
+		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum, typeId);
+		Integer num = service.getPageNum(typeId);
+		map.put("pageCount", num);
 		map.put("list", list);
+		map.put("currentPage", pageNum);
+		map.put("typeId", typeId);
+		return "/blog/blog_type";
+	}
+
+	/**
+	 * 进入博客管理界面
+	 * 
+	 * @return
+	 */
+	@RequestMapping("admin")
+	public String entryBlogAdmin(Map<String, Object> map,
+			@RequestParam(required = false) Integer pageNum) {
+		if (pageNum == null) {
+			pageNum = 0;
+		}
+		Integer pageCount = service.getPageNum(null);
+		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum,null);
+		map.put("list", list);
+		map.put("currentPage", pageNum);
+		map.put("pageCount", pageCount);
 		return "/blog/blog_admin";
 	}
-	
+
 	@RequestMapping("search")
 	public void findBySearch(String regex) {
 
@@ -86,7 +126,17 @@ public class BlogController {
 	 * @return
 	 */
 	@RequestMapping("detail")
-	public String entryPage() {
+	public String entryPage(Integer pageId, Map<String, Object> map) {
+		if (pageId == null) {
+			// 这里到时候返回文章没有找到的网页
+			return "error";
+		}
+		WebsiteBlog blog = service.getBlogById(pageId);
+		if (blog != null) {
+			map.put("blog", blog);
+		} else {
+			return "error";
+		}
 		return "/blog/blog_text";
 	}
 
@@ -149,41 +199,61 @@ public class BlogController {
 		blog.setCreateTime(new Date());
 		blog.setContent(content);
 		boolean b = service.addBlog(blog);
-		if(b){
+		if (b) {
 			return "success";
-		}else{
+		} else {
 			return "error";
 		}
 	}
-	
+
+	/**
+	 * 删除博客文章
+	 * @param blogId
+	 */
+	@RequestMapping(value = "del", method = RequestMethod.POST)
+	@ResponseBody
+	public String delBlog(Integer blogId) {
+		if(blogId==null){
+			return "error";
+		}
+		boolean delete = service.delete(blogId);
+		if(delete){
+			return "success";
+		}
+		return "error";
+	}
+
 	/**
 	 * 修改博客
+	 * 
 	 * @return
 	 */
-	@RequestMapping(value="update",method=RequestMethod.PUT)
+	@RequestMapping(value = "update", method = RequestMethod.PUT)
 	@ResponseBody
-	public String update(WebsiteBlog record){
-		if(record!=null){
-			System.out.println(record!=null);
+	public String update(WebsiteBlog record) {
+		if (record != null) {
+			System.out.println(record != null);
 			return "error";
 		}
 		boolean update = service.update(record);
-		if(update){
+		if (update) {
 			return "success";
-		}else{
+		} else {
 			return "error";
 		}
 	}
-	
-	
+
 	/**
 	 * 根据ID号进行获取相应的对象
+	 * 
 	 * @return
 	 */
-	@RequestMapping(value="get",method=RequestMethod.GET)
+	@RequestMapping(value = "get", method = RequestMethod.GET)
 	@ResponseBody
-	public WebsiteBlog get(Integer id){
+	public WebsiteBlog get(Integer id) {
 		WebsiteBlog blog = service.getBlogById(id);
 		return blog;
 	}
+	
+	
 }
