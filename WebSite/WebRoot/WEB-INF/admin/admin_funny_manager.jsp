@@ -76,48 +76,45 @@ body {
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a
-					href="http://love.kfj.cc/index.php?mod=baiduid#"
+				<li class="dropdown"><a href="http://love.kfj.cc/index.php#"
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-list-alt"></span> 功能菜单 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li class=""><a href="<%=request.getContextPath()%>/login/manager"><span
-								class="glyphicon glyphicon-home"></span> 首页</a></li>
-						<li class=""><a href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
+						<li class=""><a
+							href="<%=request.getContextPath()%>/login/manager"><span
+								class="glyphicon glyphicon-home"></span> 管理首页</a></li>
+						<li class=""><a
+							href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
-								class="glyphicon glyphicon-link"></span>项目管理</a></li>
+								class="glyphicon glyphicon-link"></span> 项目管理</a></li>
 						<li class="active"><a
-							href="http://love.kfj.cc/index.php?mod=showtb"><span
+							href="<%=request.getContextPath()%>/manager/manager_funny_manager.do"><span
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
+						<li><a href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
-								class="glyphicon glyphicon-ban-circle"></span> 循环封禁</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_post"><span
-								class="glyphicon glyphicon-cloud-upload"></span> 帖子云灌水</a></li>
+						<li><a href="<%=request.getContextPath()%>/blog/admin"><span
+								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
+						<li><a href="<%=request.getContextPath()%>/album/album"><span
+								class="glyphicon glyphicon-cloud-upload"></span> 相册管理</a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="http://love.kfj.cc/index.php?mod=admin:logout"><span
+				<li><a href="logout.do"><span
 						class="glyphicon glyphicon-off"></span> 退出登录</a></li>
 			</ul>
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a
-					href="http://love.kfj.cc/index.php?mod=baiduid#"
+				<li class="dropdown"><a href="<%=request.getContextPath()%>/AboutMy/index.html"
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-book"></span> 关于 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="http://www.stusgame.com/" target="_blank">StusGame</a></li>
-						<li><a href="https://kenvix.com/" target="_blank">Kenvix's
-								Blog</a></li>
+						<li><a href="##" target="_blank">恶搞大王</a></li>
 					</ul></li>
 			</ul>
 		</div>
 	</div>
 
-	<!-- 侧边导航，宽屏设备可见 -->
 	<div class="container bs-docs-container">
 		<div class="row">
 			<div class="col-md-3">
@@ -126,25 +123,39 @@ body {
 					<ul class="nav bs-sidenav">
 						<li></li>
 						<li class=""><a href="<%=request.getContextPath()%>/login/manager"><span
-								class="glyphicon glyphicon-home"></span> 首页</a></li>
+								class="glyphicon glyphicon-home"></span> 管理首页</a></li>
 						<li class=""><a href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
 								class="glyphicon glyphicon-link"></span> 项目管理</a></li>
 						<li class="active"><a
-							href="http://love.kfj.cc/index.php?mod=showtb"><span
-								class="glyphicon glyphicon-calendar"></span> &nbsp &nbsp &nbsp趣味管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
-								class="glyphicon glyphicon-exclamation-sign"></span> &nbsp &nbsp &nbsp临时管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
-								class="glyphicon glyphicon-ban-circle"></span> 待定</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_post"><span
-								class="glyphicon glyphicon-cloud-upload"></span> 待定</a></li>
+							href="<%=request.getContextPath()%>/manager/manager_funny_manager.do"><span
+								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
+						<li><a href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
+								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
+						<li><a href="<%=request.getContextPath()%>/blog/admin"><span
+								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
+						<li><a href="<%=request.getContextPath()%>/album/album"><span
+								class="glyphicon glyphicon-cloud-upload"></span> 相册管理</a></li>
 
 					</ul>
 				</div>
 			</div>
+			<div class="col-md-9" role="main">
+
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">程序信息</h3>
+					</div>
+					<div class="panel-body">
+						<span id="avatar" style="float:right;"><img
+							src="http://q.qlogo.cn/headimg_dl?dst_uin=378759617&spec=640&img_type=jpg"
+							class="img-rounded" height="80px" width="80px"></span>欢迎来到后台管理!
+						<br> 点击上方导航栏的 功能菜单 可以列出所有功能 <br> 此程序作者为 <a href="<%=request.getContextPath()%>/AboutMy/index.html"
+							target="_blank">恶搞大王</a> <br> 恶搞大王保留所有权利
+					</div>
+				</div>
 			<div class="col-md-9" role="main">
 
 				<!-- NAVI -->
@@ -159,11 +170,6 @@ body {
 						data-toggle="tab"
 						onclick="$(&#39;#newid&#39;).css(&#39;display&#39;,&#39;&#39;);$(&#39;#adminid&#39;).css(&#39;display&#39;,&#39;none&#39;);$(&#39;#newid2&#39;).css(&#39;display&#39;,&#39;none&#39;);"
 						aria-expanded="true">管理项目</a></li>
-					<li class=""><a
-						href="http://love.kfj.cc/index.php?mod=baiduid#newid2"
-						data-toggle="tab"
-						onclick="$(&#39;#newid2&#39;).css(&#39;display&#39;,&#39;&#39;);$(&#39;#adminid&#39;).css(&#39;display&#39;,&#39;none&#39;);$(&#39;#newid&#39;).css(&#39;display&#39;,&#39;none&#39;);"
-						aria-expanded="false">暂定</a></li>
 				</ul>
 				<br>
 				<!-- END NAVI -->

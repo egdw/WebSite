@@ -76,10 +76,10 @@ body {
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
 						<li><a href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
+						<li><a href="<%=request.getContextPath()%>/blog/admin"><span
 								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_post"><span
-								class="glyphicon glyphicon-cloud-upload"></span> 帖子云灌水</a></li>
+						<li><a href="<%=request.getContextPath()%>/album/album"><span
+								class="glyphicon glyphicon-cloud-upload"></span> 相册管理</a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
@@ -87,11 +87,11 @@ body {
 						class="glyphicon glyphicon-off"></span> 退出登录</a></li>
 			</ul>
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a href="http://love.kfj.cc/index.php#"
+				<li class="dropdown"><a href="<%=request.getContextPath()%>/AboutMy/index.html"
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-book"></span> 关于 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="##" target="_blank">恶搞大王</a></li>
+						<li><a href="<%=request.getContextPath()%>/AboutMy/index.html" target="_blank">恶搞大王</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -116,10 +116,10 @@ body {
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
 						<li><a href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
+						<li><a href="<%=request.getContextPath()%>/blog/admin"><span
 								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_post"><span
-								class="glyphicon glyphicon-cloud-upload"></span> 帖子云灌水</a></li>
+						<li><a href="<%=request.getContextPath()%>/album/album"><span
+								class="glyphicon glyphicon-cloud-upload"></span> 相册管理</a></li>
 
 					</ul>
 				</div>
@@ -133,9 +133,8 @@ body {
 					<div class="panel-body">
 						<span id="avatar" style="float:right;"><img
 							src="http://q.qlogo.cn/headimg_dl?dst_uin=378759617&spec=640&img_type=jpg"
-							class="img-rounded" height="80px" width="80px"
-							onerror="$(&#39;#avatar&#39;).html(&#39;无法加载头像&#39;);"></span>欢迎来到后台管理!
-						<br> 点击上方导航栏的 功能菜单 可以列出所有功能 <br> 此程序作者为 <a href="##"
+							class="img-rounded" height="80px" width="80px"></span>欢迎来到后台管理!
+						<br> 点击上方导航栏的 功能菜单 可以列出所有功能 <br> 此程序作者为 <a href="<%=request.getContextPath()%>/AboutMy/index.html"
 							target="_blank">恶搞大王</a> <br> 恶搞大王保留所有权利
 					</div>
 				</div>
