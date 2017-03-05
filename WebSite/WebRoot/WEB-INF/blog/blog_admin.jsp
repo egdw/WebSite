@@ -81,57 +81,51 @@ body {
 				<span class="sr-only">后台管理</span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand"
-				href="<%=request.getContextPath()%>/login/manager">后台管理</a>
+			<a class="navbar-brand" href="<%=request.getContextPath()%>/login/manager">后台管理</a>
 		</div>
 
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a
-					href="http://love.kfj.cc/index.php?mod=baiduid#"
+				<li class="dropdown"><a href="http://love.kfj.cc/index.php#"
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-list-alt"></span> 功能菜单 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li class=""><a
 							href="<%=request.getContextPath()%>/login/manager"><span
-								class="glyphicon glyphicon-home"></span> 首页</a></li>
+								class="glyphicon glyphicon-home"></span> 管理首页</a></li>
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
 								class="glyphicon glyphicon-link"></span> 项目管理</a></li>
-						<li class="active"><a
-							href="http://love.kfj.cc/index.php?mod=showtb"><span
+						<li class=""><a
+							href="<%=request.getContextPath()%>/manager/manager_funny_manager.do"><span
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
+						<li><a href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
-								class="glyphicon glyphicon-ban-circle"></span> 循环封禁</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_post"><span
-								class="glyphicon glyphicon-cloud-upload"></span> 帖子云灌水</a></li>
+						<li class="active"><a href="<%=request.getContextPath()%>/blog/admin"><span
+								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
+						<li ><a href="<%=request.getContextPath()%>/album/album"><span
+								class="glyphicon glyphicon-cloud-upload"></span> 相册管理</a></li>
 					</ul></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="http://love.kfj.cc/index.php?mod=admin:logout"><span
+				<li><a href="logout.do"><span
 						class="glyphicon glyphicon-off"></span> 退出登录</a></li>
 			</ul>
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a
-					href="http://love.kfj.cc/index.php?mod=baiduid#"
+				<li class="dropdown"><a href="<%=request.getContextPath()%>/AboutMy/index.html"
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-book"></span> 关于 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="http://www.stusgame.com/" target="_blank">StusGame</a></li>
-						<li><a href="https://kenvix.com/" target="_blank">Kenvix's
-								Blog</a></li>
+						<li><a href="<%=request.getContextPath()%>/AboutMy/index.html" target="_blank">恶搞大王</a></li>
 					</ul></li>
 			</ul>
 		</div>
 	</div>
 
-	<!-- 侧边导航，宽屏设备可见 -->
 	<div class="container bs-docs-container">
 		<div class="row">
 			<div class="col-md-3">
@@ -139,38 +133,44 @@ body {
 					role="complementary">
 					<ul class="nav bs-sidenav">
 						<li></li>
-						<li class=""><a
-							href="<%=request.getContextPath()%>/login/manager"><span
-								class="glyphicon glyphicon-home"></span> 首页</a></li>
-						<li class=""><a
-							href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
+						<li class=""><a href="<%=request.getContextPath()%>/login/manager"><span
+								class="glyphicon glyphicon-home"></span> 管理首页</a></li>
+						<li class=""><a href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
 								class="glyphicon glyphicon-link"></span> 项目管理</a></li>
 						<li class=""><a
-							href="http://love.kfj.cc/index.php?mod=showtb"><span
+							href="<%=request.getContextPath()%>/manager/manager_funny_manager.do"><span
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=mok_bduss"><span
+						<li><a href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
-						<li class="active"><a
-							href="http://love.kfj.cc/index.php?plugin=wmzz_ban"><span
+						<li class="active"><a href="<%=request.getContextPath()%>/blog/admin"><span
 								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
-						<li><a href="http://love.kfj.cc/index.php?plugin=wmzz_post"><span
-								class="glyphicon glyphicon-cloud-upload"></span> 待定</a></li>
+						<li ><a href="<%=request.getContextPath()%>/album/album"><span
+								class="glyphicon glyphicon-cloud-upload"></span> 相册管理</a></li>
 
 					</ul>
 				</div>
 			</div>
 			<div class="col-md-9" role="main">
 
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">程序信息</h3>
+					</div>
+					<div class="panel-body">
+						<span id="avatar" style="float:right;"><img
+							src="http://q.qlogo.cn/headimg_dl?dst_uin=378759617&spec=640&img_type=jpg"
+							class="img-rounded" height="80px" width="80px"></span>欢迎来到后台管理!
+						<br> 点击上方导航栏的 功能菜单 可以列出所有功能 <br> 此程序作者为 <a href="<%=request.getContextPath()%>/AboutMy/index.html"
+							target="_blank">恶搞大王</a> <br> 恶搞大王保留所有权利
+					</div>
+				</div>
+			<div class="col-md-9" role="main">
+
 				<!-- NAVI -->
 				<ul class="nav nav-tabs" id="PageTab">
-					<li class=""><a
-						href="http://love.kfj.cc/index.php?mod=baiduid#adminid"
-						data-toggle="tab"
-						onclick="$(&#39;#newid2&#39;).css(&#39;display&#39;,&#39;none&#39;);$(&#39;#newid&#39;).css(&#39;display&#39;,&#39;none&#39;);$(&#39;#adminid&#39;).css(&#39;display&#39;,&#39;&#39;);"
-						aria-expanded="false">相册</a></li>
 					<li class="active"><a
 						href="http://love.kfj.cc/index.php?mod=baiduid#newid"
 						data-toggle="tab"
@@ -181,7 +181,41 @@ body {
 				<!-- END NAVI -->
 				<!-- 第一个分组界面 -->
 				<div class="tab-pane fade" id="adminid" style="display: none;">
+					<div style="padding-top: 10px">
+						<a data-toggle="modal" data-target="#add-image-modal"
+							class="btn btn-info btn-sm">发图片</a>
+						<table class="table table-hover" id="image-table">
+							<thead>
+								<tr>
+									<th>id</th>
+									<th>地址</th>
+									<th>标题</th>
+									<th>创建时间</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
 
+							</tbody>
+						</table>
+						<!-- 分页开始 -->
+						<nav style="text-align: center">
+
+							<ul class="pagination">
+								<c:forEach var="index" begin="1" end="${requestScope.pageCount}">
+									<c:if test="${requestScope.currentPage==index}">
+										<li><a style="color: #000000"
+											href="<%=request.getContextPath()%>/blog/admin?pageNum=${index-1}">${index}</a></li>
+									</c:if>
+									<c:if test="${requestScope.currentPage!=index}">
+										<li><a
+											href="<%=request.getContextPath()%>/blog/admin?pageNum=${index-1}">${index}</a></li>
+									</c:if>
+								</c:forEach>
+							</ul>
+						</nav>
+						<!-- 分页结束 -->
+					</div>
 				</div>
 				<!-- 第一个分组结束 -->
 				<!-- 第二个分组界面 -->
@@ -208,7 +242,8 @@ body {
 									varStatus="i">
 									<tr>
 										<td>${i.index+1}</td>
-										<td><a href="#" name="${i.index+1}" onclick="editInfo(this)">${index.title}</a></td>
+										<td><a href="#" name="${i.index+1}"
+											onclick="editInfo(this)">${index.title}</a></td>
 										<td><a
 											href="<%=request.getContextPath()%>/${index.picUrl}"
 											class="thumbnail" data-lightbox="example-set"
@@ -220,13 +255,14 @@ body {
 										<td>${index.clickTimes}</td>
 										<td>${index.commentTimes}</td>
 										<td>${index.agreeWithTimes}</td>
-										<td>${index.createTime}</td>
+										<td><fmt:formatDate value="${index.createTime}" pattern="yyyy-mm-dd hh:mm:ss"/></td>
 										<td>
 											<div class="btn-group btn-group-xs">
-												<button type="button" class="btn btn-success" name="${i.index+1}"
-													onclick="editInfo(this)">修改</button>
+												<button type="button" class="btn btn-success"
+													name="${i.index+1}" onclick="editInfo(this)">修改</button>
 												<a data-toggle="modal" data-target="#deleteBlogModel"
-													type="button" class="btn btn-warning">删除</a>
+													type="button" class="btn btn-warning"
+													onclick="clickDel(${index.id},${i.index},this)">删除</a>
 											</div>
 										</td>
 										<!-- 信息删除确认 -->
@@ -238,13 +274,15 @@ body {
 															aria-label="Close">
 															<span aria-hidden="true">×</span>
 														</button>
-														<h4 class="modal-title">提示信息</h4>
+														<h4 class="modal-title">确认删除操作</h4>
 													</div>
 													<div class="modal-body">
-														<p>对不起，您没有此权限</p>
+														<p>您确认要删除这篇文章吗?</p>
 														<div class="modal-footer">
 															<button type="button" class="btn btn-default"
-																data-dismiss="modal">了解</button>
+																data-dismiss="modal" onclick="delPage()">确定</button>
+															<button type="button" class="btn btn-default"
+																data-dismiss="modal">取消</button>
 														</div>
 													</div>
 												</div>
@@ -261,16 +299,16 @@ body {
 						<nav style="text-align: center">
 
 							<ul class="pagination">
-								<li><a aria-label="Previous"> <span class="disabled"
-										aria-hidden="true">&laquo;</span>
-								</a></li>
-
-								<li><a style="color: #000000">1</a></li>
-								<li><a href="/blog/admin/2">2</a>
-								<li>
-								<li><a href="/blog/admin/2" aria-label="Next"> <span
-										aria-hidden="true">&raquo;</span>
-								</a></li>
+								<c:forEach var="index" begin="1" end="${requestScope.pageCount}">
+									<c:if test="${requestScope.currentPage==index}">
+										<li><a style="color: #000000"
+											href="<%=request.getContextPath()%>/blog/admin?pageNum=${index-1}">${index}</a></li>
+									</c:if>
+									<c:if test="${requestScope.currentPage!=index}">
+										<li><a
+											href="<%=request.getContextPath()%>/blog/admin?pageNum=${index-1}">${index}</a></li>
+									</c:if>
+								</c:forEach>
 							</ul>
 						</nav>
 						<!-- 分页结束 -->
@@ -278,7 +316,53 @@ body {
 				</div>
 				<!-- 第二个分组结束 -->
 				<div class="container col-lg-2 col-md-1"></div>
-				<!-- 隐藏窗体 -->
+
+				<!-- 隐藏添加图片窗体 -->
+				<div class="modal fade" id="add-image-modal" tabindex="-1"
+					role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times;</span><span class="sr-only">关闭</span>
+								</button>
+								<h4 class="modal-title">添加</h4>
+							</div>
+
+							<form id="addImageForm"
+								action="<%=request.getContextPath()%>/blog/add" method="post">
+								<div class="modal-body">
+									<div>
+										<label style="font-size: 15px">标题:</label> <input
+											style="display: inline;font-size:15px;width:250px;"
+											name="title" type="text" class="form-control" placeholder="请输入标题" />
+									</div>
+									<div id="pic_div" style="padding-top: 5px;">
+										<label style="font-size: 15px">图片: </label>
+										<div id="show"></div>
+										<!-- 存储图片地址，并显示图片 -->
+										<input type="hidden" name="pic_url" id="pictureSrc2">
+									</div>
+									<img alt="" id="displayImg2" width="100px" height="100px" src="">
+									<div style="padding-top: 5px">
+										<input type="file" name="image" id="imageFile2">
+									</div>
+									<div style="padding-top: 5px">
+										<button id="upload2" onclick="return false;">上传</button>
+									</div>
+								</div>
+								<input type="hidden" name="userType" value="1">
+								<div class="modal-footer">
+									<button type="button" id="addImageBtn" class="btn btn-success"
+										onclick="return false;">添加</button>
+									<button type="button" id="addImageBtnCancle"
+										class="btn btn-default" data-dismiss="modal">取消</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- 隐藏博客添加窗体 -->
 				<div class="modal fade" id="add-blog-modal" tabindex="-1"
 					role="dialog" aria-labelledby="modal-label" aria-hidden="true">
 					<div class="modal-dialog">
@@ -296,7 +380,7 @@ body {
 									<div>
 										<label style="font-size: 15px">标题:</label> <input
 											style="display: inline;font-size:15px;width:250px;"
-											name="title" type="text" class="form-control" />
+											name="title" type="text" class="form-control" placeholder="请输入标题"/>
 									</div>
 									<div style="padding-top: 5px">
 										<label style="font-size: 15px">分类:</label> <select name="type"
@@ -379,11 +463,11 @@ body {
 											id="update_blog_image" type="hidden" name="blog.pic_url">
 									</div>
 									<div style="padding-top: 8px">
-										<textarea id="update_content" cols="80" row="10" name="blog.content"
-											class="ckeditor"></textarea>
-											<ckf:setupCKEditor basePath="/WebSite/ckfinder/"
+										<textarea id="update_content" cols="80" row="10"
+											name="blog.content" class="ckeditor"></textarea>
+										<ckf:setupCKEditor basePath="/WebSite/ckfinder/"
 											editor="update_content" />
-											<ck:replace replace="update_content"
+										<ck:replace replace="update_content"
 											basePath="/WebSite/ckeditor"></ck:replace>
 									</div>
 								</div>
@@ -404,7 +488,39 @@ body {
 					src="<%=request.getContextPath()%>/css/MyBlog_files/lightbox.js"></script>
 				<script src="<%=request.getContextPath()%>/js/ajaxfileupload.js"></script>
 				<script type="text/javascript">
-					
+				//临时存放需要删除的文章ID号
+				var delIdTemp;
+				//临时存放删除的文章ID号所在的表中的位置.
+				var delTableTemp;
+				function clickDel(x,y,index){
+					delIdTemp = x;
+					delTableTemp = y+1;
+				}
+				
+				function delPage(){
+					 $.ajax({
+						type:'post',
+						url:'<%=request.getContextPath()%>/blog/del?blogId='+delIdTemp,
+						data:{blogId:delIdTemp},
+						dataType:'text',
+						success:function(data){
+							if(data=='success'){
+								document.getElementById("blog-table").deleteRow(delTableTemp);
+								var rowsCount = document.getElementById("blog-table").rows.length;
+								for(var z = 1;z<rowsCount;z++){
+									document.getElementById("blog-table").rows[z].cells[0].innerText = (z) ;
+								}
+								alert("删除成功"+rowsCount+" "+delTableTemp);
+							}else{  
+								alert('删除失败');
+							}
+						},
+						error:function(){
+							alert("删除失败");
+						}
+					}); 
+				}
+				
 				//编辑-查看信息
 			    function editInfo(obj) {
 			        var id = $(obj).attr("name");
@@ -460,6 +576,32 @@ body {
 								alert("提交出错");
 						    } 
 						});
+					}
+					
+					//上传图片专用
+					function uploadImage(){
+						 $.ajaxFileUpload(
+							        {
+							            url : '<%=request.getContextPath()%>/blog/imageUpload',  
+							            secureuri: false,
+							            fileElementId : 'imageFile2', 
+							            dataType : 'text',
+							            success : function(data) {
+							            	var obj = eval(data);
+							            	if(obj!='null'){
+												$('#displayImg').attr("src","/WebSite/"+obj);
+												$('#pictureSrc').attr("value",obj);
+							            	}else{
+							            		$('#displayImg').attr("src","");
+							            		$('#pictureSrc').attr("value","");
+							            		alert("上传失败"+obj);
+							            	}
+							            },
+							        	error: function (data, status, e){
+				                       		alert("上传失败");
+				                    	}
+							        }
+								);
 					}
 					
 					function upload() {
