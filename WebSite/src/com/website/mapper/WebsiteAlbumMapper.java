@@ -1,5 +1,7 @@
 package com.website.mapper;
 
+import java.util.ArrayList;
+
 import com.website.entites.WebsiteAlbum;
 
 public interface WebsiteAlbumMapper {
@@ -14,4 +16,10 @@ public interface WebsiteAlbumMapper {
     int updateByPrimaryKeySelective(WebsiteAlbum record);
 
     int updateByPrimaryKey(WebsiteAlbum record);
+    
+    ArrayList<WebsiteAlbum> getAll();
+    
+    int albumCount();
+    
+    ArrayList<WebsiteAlbum> selectAlbumByPage( Integer pageNum, Integer getNum);
 }
