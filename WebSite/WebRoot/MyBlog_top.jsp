@@ -34,11 +34,11 @@
 					aria-haspopup="true" aria-expanded="false">分类 <span
 						class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="type">学习</a></li>
+						<li><a href="type?pageNum=0&typeId=0">学习</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="type">生活</a></li>
+						<li><a href="type?pageNum=0&typeId=1">生活</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="type">随笔</a></li>
+						<li><a href="type?pageNum=0&typeId=2">随笔</a></li>
 					</ul></li>
 				<li><a href="<%=request.getContextPath()%>/blog/image">相册</a></li>
 				<li><a href="http://kkys.online/blog/#" data-toggle="modal"
