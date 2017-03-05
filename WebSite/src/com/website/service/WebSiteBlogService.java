@@ -55,8 +55,13 @@ public class WebSiteBlogService {
 		return blog;
 	}
 	
-	public Integer getProjectNum() {
-		int num = mapper.getBLogNum();
+	public Integer getProjectNum(Integer type) {
+		int num = 0;
+		if(type==null){
+			num = mapper.getBLogNum();
+		}else{
+			num = mapper.getBlogNumByType(type);
+		}
 		// 获取到所有项目的数量
 		return num;
 	}
@@ -65,8 +70,8 @@ public class WebSiteBlogService {
 	 * 获取分页
 	 * @return
 	 */
-	public Integer getPageNum(){
-		Integer num = getProjectNum();
+	public Integer getPageNum(Integer type){
+		Integer num = getProjectNum(type);
 		int page = 0;
 		if (num % ConstantClass.EVERT_PROJECT_GET_NUM == 0) {
 			page = num / ConstantClass.EVERT_PROJECT_GET_NUM;
@@ -76,8 +81,13 @@ public class WebSiteBlogService {
 		return page;
 	}
 	
-	public ArrayList<WebsiteBlog> selectBlogByNum(Integer pageNum){
-		ArrayList<WebsiteBlog> arrayList = mapper.selectByPageNum(pageNum* ConstantClass.EVERT_PROJECT_GET_NUM, ConstantClass.EVERT_PROJECT_GET_NUM);
+	public ArrayList<WebsiteBlog> selectBlogByNum(Integer pageNum,Integer type){
+		ArrayList<WebsiteBlog> arrayList = null;
+		if(type==null){
+			arrayList = mapper.selectByPageNum(pageNum* ConstantClass.EVERT_PROJECT_GET_NUM, ConstantClass.EVERT_PROJECT_GET_NUM);
+		}else{
+			arrayList = mapper.selectByPageNumByType(pageNum* ConstantClass.EVERT_PROJECT_GET_NUM, ConstantClass.EVERT_PROJECT_GET_NUM, type);
+		}
 		return arrayList;
 	}
 	
