@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/list/style.css">
 </head>
-<body>
+<body style="background-image: url(<%=request.getContextPath()%>/images/bg.jpg);">
 	<div class="wrapper cf animated">
 		<div class="header grid cf">
 			<div class="main cf">

@@ -6,6 +6,10 @@
 	<welcome-file-list>
 		<welcome-file>splash.html</welcome-file>
 	</welcome-file-list>
+	<error-page>
+	  <error-code>404</error-code>
+	  <location>/404.jsp</location>
+	</error-page>
 	<!-- Spring核心监听器 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

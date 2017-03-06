@@ -19,13 +19,14 @@
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 </head>
-<nav class="navbar navbar-default navbar-static-top">
-	<div class="container">
+<body style="background-color:#FFFFF0">
+<nav class="" style="background-color:#FFFFF0">
+	<div class="container" style="background-color:#FFFFF0">
 		<div class="navbar-header">
 			<a class="navbar-brand" href="<%=request.getContextPath()%>/blog/">恶搞大王的博客</a>
 		</div>
 
-		<div class="collapse navbar-collapse">
+		<div class="collapse navbar-collapse" style="background-color:	#FFFFF0">
 			<ul class="nav navbar-nav">
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				<li><a href="<%=request.getContextPath()%>/blog/">首页</a></li>
@@ -45,7 +46,7 @@
 					data-target="#about-modal">关于</a></li>
 				<li><a href="<%=request.getContextPath()%>/login/manager">管理</a></li>
 			</ul>
-			<div style="float: right;">
+			<div style="float: right;" style="background-color: 	#FFFFF0">
 				<div class="input-group" style="padding-top: 9px">
 					<form action="http://kkys.online/blog/searchByTitle" method="post">
 						<input style="font-size:18px;width: 280px" class="form-control"
@@ -58,9 +59,9 @@
 	</div>
 	</div>
 
-	<div class="modal fade" id="about-modal" tabindex="-1" role="dialog"
-		aria-labelledby="modal-label" aria-hidden="true">
-		<div class="modal-dialog">
+	<div class="modal fade" id="about-modal" tabindex="-1" role="dialog" style="background-color:#FFFFF0"
+		aria-labelledby="modal-label" aria-hidden="true" >
+		<div class="modal-dialog"  style="background-color:#FFFFF0">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">

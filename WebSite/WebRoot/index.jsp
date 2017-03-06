@@ -4,12 +4,18 @@
 <head>
 <title>恶搞大王的个人网站</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/index_style.css" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script src="js/jquery.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/script.js"></script>
+<style type="text/css">
+*{margin:0;padding:0;list-style-type:none;}
+a,img{border:0;}
+body{background:#000;}
+</style>
 </head>
 <body>
 	<div class="head">
@@ -25,13 +31,13 @@
 			</div>
 			<div class="followers">
 				<div class="f-left f-1">
-					<a href="#"><span class="f1"></span></a>
+					<a href="blog/"><span class="f1"></span></a>
 				</div>
 				<div class="f-left f-middle">
-					<a href="#"><span class="f2"></span></a>
+					<a href="./AboutMy/index.html"><span class="f2"></span></a>
 				</div>
 				<div class="f-left f-right">
-					<a href="#"><span class="f3"></span></a>
+					<a href="project/MyProject.do"><span class="f3"></span></a>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -39,7 +45,7 @@
 				<li class="menu">
 					<ul>
 						<li class="button"><a href="#">信息<span class="icon stat">
-							</span><i>3</i></a></li>
+							</span><i>4</i></a></li>
 						<li class="dropdown">
 							<ul class="icon-navigation">
 								<li><a href="project/MyProject.do">我的作品</a></li>
@@ -56,7 +62,6 @@
 							</span></a></li>
 						<li class="dropdown">
 							<ul class="icon-navigation">
-								<li><a href="#">暂定</a></li>
 								<li><a href="<%=request.getContextPath()%>/login/manager">管理</a></li>
 								<li><a href="./AboutMy/index.html">关于我</a></li>
 							</ul>
@@ -68,4 +73,6 @@
 	</div>
 	<div class="footer"></div>
 </body>
+<script type="text/javascript" color="255,0,0" opacity='0.9' zIndex="-2" count="100" src="<%=request.getContextPath()%>/js/canvas-nest.min.js"></script>
+<script type="text/javascript" src="js/origami.js"></script>
 </html>

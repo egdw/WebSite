@@ -110,7 +110,6 @@ body {
 								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
 						<li><a href="<%=request.getContextPath()%>/album/album"><span
 								class="glyphicon glyphicon-cloud-upload"></span> 相册管理</a></li>
-
 					</ul>
 				</div>
 			</div>
@@ -131,7 +130,7 @@ body {
 
    
             <div class="col-md-9" role="main">
-                <form action="http://love.kfj.cc/setting.php?mod=set" method="post">
+                <form action="<%=request.getContextPath()%>/userController/update" method="post">
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead>
@@ -145,26 +144,26 @@ body {
                                     <td>头像设置<br>您的真实姓名
                                     </td>
                                     <td> <input
-                                        type="text" name="face_baiduid" value="${requestScope.user.userName}"
+                                        type="text" name="username" value="${requestScope.user.userName}"
                                         class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td>邮箱设置<br>更改你在本站设置的邮箱地址
                                     </td>
-                                    <td><input type="text" name="mail"
+                                    <td><input type="text" name="email"
                                         value="${requestScope.user.userEmail}" class="form-control" required="">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>手机设置<br>更改你在本站设置的手机号码
                                     </td>
-                                    <td><input type="text" class="form-control"
+                                    <td><input type="text" class="phone"
                                        value="${requestScope.user.userPhone}" name="wmzz_chpwd_newpw"></td>
                                 </tr>
                                 <tr>
                                     <td>更改密码<br>留空表示不更改密码
                                     </td>
-                                    <td><input type="password" class="form-control"
+                                    <td><input type="newPassword" class="form-control"
                                         name="wmzz_chpwd_newpw"></td>
                                 </tr>
                             </tbody>

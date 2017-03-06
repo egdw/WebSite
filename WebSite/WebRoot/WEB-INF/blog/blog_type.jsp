@@ -7,7 +7,8 @@
 <title>恶搞大王的个人博客分类</title>
 </head>
 
-<body>
+<body style="background-color: 	#FFFFF0">
+<script type="text/javascript" color="255,0,0" opacity='0.7' zIndex="-2" count="200" src="<%=request.getContextPath()%>/js/canvas-nest.min.js"></script>
 	<jsp:include page="/MyBlog_top.jsp"></jsp:include>
 	<div class="container table_box">
 		<span style="font-size: 16px"></span> <span style="font-size: 20px">最新</span>

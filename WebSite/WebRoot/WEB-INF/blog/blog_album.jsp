@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>相册</title>
 </head>
-<body>
+<body style="background-color: 	#FFFFF0">
+<script type="text/javascript" color="255,0,0" opacity='0.7' zIndex="-2" count="200" src="<%=request.getContextPath()%>/js/canvas-nest.min.js"></script>
 	<jsp:include page="/MyBlog_top.jsp"></jsp:include>
 	<div class="row-fluid container" style="text-align: center">
 		<hr>

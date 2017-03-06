@@ -130,4 +130,26 @@
       agree_with_times = #{agreeWithTimes,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <resultMap type="com.website.entites.WebsiteComment" id="resultMap">
+  		<id column="id" property="id"/>
+  		<result column="blog_id" property="blogId"/>
+  		<result column="content" property="content"/>
+  		<result column="username" property="username"/>
+  		<result column="email" property="email"/>
+  		<result column="create_time" property="createTime"/>
+  		<result column="agree_with_times" property="agreeWithTimes"/>
+  </resultMap>
+  
+  <select id="selectCommentByBlogId" resultMap="resultMap">
+  	select * from website_comment where blog_id = #{0};
+  </select>
+  
+  <select id="getById" resultMap="resultMap">
+  	select * from website_comment where id = #{0};
+  </select>
+  
+  <select id="selectCommentByNum" resultMap="resultMap">
+  	select * from website_comment limit 0,#{0};
+  </select>
 </mapper>

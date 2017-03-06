@@ -1,5 +1,7 @@
 package com.website.mapper;
 
+import java.util.ArrayList;
+
 import com.website.entites.WebsiteComment;
 
 public interface WebsiteCommentMapper {
@@ -16,4 +18,10 @@ public interface WebsiteCommentMapper {
     int updateByPrimaryKeyWithBLOBs(WebsiteComment record);
 
     int updateByPrimaryKey(WebsiteComment record);
+    
+    ArrayList<WebsiteComment> selectCommentByBlogId(Integer blogId);
+    
+    WebsiteComment getById(Integer id);
+    
+    ArrayList<WebsiteComment> selectCommentByNum(Integer num);
 }

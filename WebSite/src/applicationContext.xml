@@ -98,12 +98,15 @@
 				/index.jsp = anon
 				/login/logout.do = anon
 				/login/manager =anon
+				/comment/add = anon
+				/comment/get = anon
 				/blog/** =anon
 				/ = anon
 				/login/Login.do = anon
 				/unauthorized.jsp = anon
 				/login.jsp = anon
 				/*.jar = anon
+				/404.jsp=anon
 				/ckeditor/** =anon
 				/ckfinder/** =anon
 				/** = authc

@@ -23,8 +23,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.website.entites.WebsiteAlbum;
 import com.website.entites.WebsiteBlog;
+import com.website.entites.WebsiteComment;
 import com.website.service.WebSiteAlbumService;
 import com.website.service.WebSiteBlogService;
+import com.website.service.WebSiteCommentService;
 import com.website.utils.UUIDUtils;
 
 @RequestMapping("blog")
@@ -34,6 +36,8 @@ public class BlogController {
 	private WebSiteBlogService service;
 	@Autowired
 	private WebSiteAlbumService albumService;
+	@Autowired
+	private WebSiteCommentService commentService;
 	/**
 	 * 进入博客主页
 	 */
@@ -47,9 +51,15 @@ public class BlogController {
 		Integer pageCount = service.getPageNum(null);
 		//从数据库中获取最新的钱五张图片
 		ArrayList<WebsiteAlbum> albumbyPage = albumService.selectAlbumbyPage(0, 5);
+		ArrayList<WebsiteComment> comments = commentService.getCommentByNum(5);
+		ArrayList<WebsiteBlog> selectBlogByNumAndComment = service.selectBlogByNumAndComment(5);
+		ArrayList<WebsiteBlog> selectBlogByNumAndReader = service.selectBlogByNumAndReader(5);
 		map.put("list", list);
 		map.put("pageCount", pageCount);
 		map.put("currentPage", pageNum);
+		map.put("comments", comments);
+		map.put("topComments", selectBlogByNumAndComment);
+		map.put("topReader", selectBlogByNumAndReader);
 		map.put("images", albumbyPage);
 		return "/blog/blog_index";
 	}
@@ -133,6 +143,9 @@ public class BlogController {
 		}
 		WebsiteBlog blog = service.getBlogById(pageId);
 		if (blog != null) {
+			boolean clickTimes = service.updateClickTimes(blog.getId());
+			ArrayList<WebsiteComment> list = commentService.selectCommentByBlogId(blog.getId());
+			map.put("comments", list);
 			map.put("blog", blog);
 		} else {
 			return "error";
@@ -228,19 +241,30 @@ public class BlogController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping(value = "update", method = RequestMethod.PUT)
+	@RequestMapping(value = "update", method = RequestMethod.POST)
 	@ResponseBody
-	public String update(WebsiteBlog record) {
-		if (record != null) {
-			System.out.println(record != null);
+	public String update(String title,Integer id,Integer type,String pic_url, String content) {
+		WebsiteBlog record = null;
+		if(id!=null){
+			record = service.getBlogById(id);
+		}else{
 			return "error";
 		}
-		boolean update = service.update(record);
-		if (update) {
-			return "success";
-		} else {
+		if (record == null) {
 			return "error";
 		}
+		record.setPicUrl(pic_url);
+		record.setTitle(title);
+		record.setType(type.byteValue());
+		record.setContent(content);
+		boolean delete = service.delete(id);
+		if(delete){
+			boolean blog = service.addBlog(record);
+			if(blog){
+				return "success";
+			}
+		}
+		return "error";
 	}
 
 	/**

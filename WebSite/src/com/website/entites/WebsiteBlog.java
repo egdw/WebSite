@@ -92,4 +92,15 @@ public class WebsiteBlog {
     public void setContent(String content) {
         this.content = content;
     }
+
+	@Override
+	public String toString() {
+		return "WebsiteBlog [id=" + id + ", title=" + title + ", type=" + type
+				+ ", clickTimes=" + clickTimes + ", createTime=" + createTime
+				+ ", commentTimes=" + commentTimes + ", agreeWithTimes="
+				+ agreeWithTimes + ", picUrl=" + picUrl + ", content="
+				+ content + "]";
+	}
+    
+    
 }
