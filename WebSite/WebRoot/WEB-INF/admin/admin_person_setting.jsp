@@ -158,13 +158,13 @@ body {
                                     <td>手机设置<br>更改你在本站设置的手机号码
                                     </td>
                                     <td><input type="text" class="phone"
-                                       value="${requestScope.user.userPhone}" name="wmzz_chpwd_newpw"></td>
+                                       value="${requestScope.user.userPhone}" name="phone"></td>
                                 </tr>
                                 <tr>
                                     <td>更改密码<br>留空表示不更改密码
                                     </td>
-                                    <td><input type="newPassword" class="form-control"
-                                        name="wmzz_chpwd_newpw"></td>
+                                    <td><input type="password" class="form-control"
+                                        name="newPassword"></td>
                                 </tr>
                             </tbody>
                         </table>

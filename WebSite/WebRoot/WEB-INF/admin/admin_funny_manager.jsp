@@ -76,7 +76,7 @@ body {
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a href="http://love.kfj.cc/index.php#"
+				<li class="dropdown"><a href="##"
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-list-alt"></span> 功能菜单 <b class="caret"></b></a>
 					<ul class="dropdown-menu">

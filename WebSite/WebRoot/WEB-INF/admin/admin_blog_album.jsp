@@ -87,7 +87,7 @@ body {
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a href="http://love.kfj.cc/index.php#"
+				<li class="dropdown"><a href="##"
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-list-alt"></span> 功能菜单 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -455,14 +455,13 @@ body {
 				            fileElementId : 'imageFile', 
 				            dataType : 'text',
 				            success : function(data) {
-				            	var obj = eval(data);
-				            	if(obj!='null'){
-									$('#displayImg').attr("src","/WebSite/"+obj);
-									$('#pictureSrc').attr("value",obj);
+				            	if(data!='null'){
+									$('#displayImg').attr("src","/WebSite/"+data);
+									$('#pictureSrc').attr("value",data);
 				            	}else{
 				            		$('#displayImg').attr("src","");
 				            		$('#pictureSrc').attr("value","");
-				            		alert("上传失败"+obj);
+				            		alert("上传失败"+data);
 				            	}
 				            },
 				        	error: function (data, status, e){

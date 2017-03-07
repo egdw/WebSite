@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/list/style.css">
 </head>
+<script type="text/javascript" color="255,0,0" opacity='0.9' zIndex="-2" count="100" src="<%=request.getContextPath()%>/js/canvas-nest.min.js"></script>
 <body style="background-image: url(<%=request.getContextPath()%>/images/bg.jpg);">
 	<div class="wrapper cf animated">
 		<div class="header grid cf">

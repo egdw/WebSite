@@ -656,14 +656,13 @@ body {
 				            fileElementId : 'imageFile', 
 				            dataType : 'text',
 				            success : function(data) {
-				            	var obj = eval(data);
-				            	if(obj!='null'){
-									$('#displayImg').attr("src","/WebSite/"+obj);
-									$('#pictureSrc').attr("value",obj);
+				            	if(data!='null'){
+									$('#displayImg').attr("src","/WebSite/"+data);
+									$('#pictureSrc').attr("value",data);
 				            	}else{
 				            		$('#displayImg').attr("src","");
 				            		$('#pictureSrc').attr("value","");
-				            		alert("上传失败"+obj);
+				            		alert("上传失败"+data);
 				            	}
 				            },
 				        	error: function (data, status, e){

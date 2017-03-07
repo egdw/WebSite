@@ -19,10 +19,12 @@ public class UserController {
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	public String update(String username, String email, String phone,
 			String newPassword) {
+		boolean isChangePassword=  false;
 		Subject subject = SecurityUtils.getSubject();
 		String id = (String) subject.getPrincipal();
 		WebsiteUser user = service.getByUsername(id);
-		if (newPassword != null) {
+		if (newPassword != null && !newPassword.isEmpty()) {
+			isChangePassword =true;
 			user.setLoginPasswd(newPassword);
 		}
 		if (username != null) {
@@ -34,7 +36,12 @@ public class UserController {
 		if (phone != null) {
 			user.setUserPhone(phone);
 		}
-		service.updateUser(user);
+		boolean updateUser = service.updateUser(user);
+		if(updateUser && isChangePassword){
+			Subject subject2 = SecurityUtils.getSubject();
+			subject2.logout();
+			return "redirect:/login/login.jsp";
+		}
 		return "redirect:/manager/manager_person_setting.do";
 	}
 }
