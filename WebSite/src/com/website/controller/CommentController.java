@@ -36,10 +36,14 @@ public class CommentController {
 	@RequestMapping(value = "del", method = RequestMethod.GET)
 	@ResponseBody
 	public String del(Integer comentId) {
+		WebsiteComment comment = commentService.getCommentById(comentId);
+		if(comment==null){
+			return "error";
+		}
+		Integer blogId = comment.getBlogId();
 		boolean b = commentService.delComment(comentId);
 		if(b){
-			WebsiteComment comment = commentService.getCommentById(comentId);
-			boolean c = blogService.updateCommentTimes(comment.getBlogId(), true);
+			boolean c = blogService.updateCommentTimes(blogId, true);
 			if(c){
 				return "success";
 			}
