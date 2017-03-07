@@ -99,8 +99,12 @@ public class WebSiteUserService {
 	 * @param user
 	 *            新修改的用户对象
 	 */
-	public void updateUser(WebsiteUser user) {
+	public boolean updateUser(WebsiteUser user) {
 		int key = mapper.updateByPrimaryKey(user);
+		if(key>0){
+			return true;
+		}
+		return false;
 	}
 
 	/**
