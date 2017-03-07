@@ -173,7 +173,7 @@ public class BlogController {
 		if (filename != null && !filename.isEmpty()) {
 			int lastIndexOf = filename.lastIndexOf(".");
 			String string = filename.substring(lastIndexOf);
-			path = new File(request.getRealPath("upload/image/") + "/"
+			path = new File(request.getRealPath("upload"+File.separator+"image"+File.separator) + File.separator
 					+ UUIDUtils.getUUID() + string);
 		}
 		try {
@@ -190,11 +190,11 @@ public class BlogController {
 		if (path.exists()) {
 			// 这里进行返回相应的图片的地址.
 			String absolutePath = path.getAbsolutePath();
-			int indexOf = absolutePath.indexOf("upload/image/");
+			int indexOf = absolutePath.indexOf("upload"+File.separator+"image"+File.separator);
 			String substring = absolutePath.substring(indexOf);
-			return "{url:'" + substring + "'}";
+			return substring;
 		} else {
-			return "{url:'null'}";
+			return "null";
 		}
 	}
 
