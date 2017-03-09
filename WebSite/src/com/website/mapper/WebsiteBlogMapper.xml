@@ -179,15 +179,15 @@
   </select>
   
   <select id="selectByPageNum" resultMap="resultMap">
-  	select * from website_blog limit #{0},#{1};
+  	select * from website_blog order by id desc limit #{0},#{1};
   </select>
   
   <select id="selectByPageNumByType" resultMap="resultMap">
-  	select * from website_blog where type = #{2} limit #{0},#{1};
+  	select * from website_blog where type = #{2} order by id desc limit #{0},#{1};
   </select>
   
   <select id="getBlogNumByType" resultType="int">
-  	select count(*) from website_blog where type =#{0};
+  	select count(*) from website_blog where type =#{0} order by id desc;
   </select>
 	
 	<select id="findBlogByName" resultMap="resultMap">
