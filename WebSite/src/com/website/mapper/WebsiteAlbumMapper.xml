@@ -90,7 +90,7 @@
 	</resultMap>
 
 	<select id="getAll" resultMap="resultMap">
-		select * from website_album;
+		select * from website_album order by id desc;
 	</select>
 
 	<select id="albumCount" resultType="int">
@@ -98,6 +98,6 @@
 	</select>
 
 	<select id="selectAlbumByPage" resultMap="resultMap">
-		select * from website_album limit #{0},#{1};
+		select * from website_album order by id desc limit #{0},#{1};
 	</select>
 </mapper>
