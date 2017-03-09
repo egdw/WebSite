@@ -81,9 +81,7 @@
 				</c:forEach>
 			</ul>
 			</nav>
-
 		</div>
-
 
 		<!-- 下面显示的是最新上传的图片 -->
 		<div class="container col-lg-3"
