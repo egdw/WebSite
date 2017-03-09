@@ -171,4 +171,12 @@ public class WebSiteBlogService {
 		ArrayList<WebsiteBlog> list = mapper.selectBlogByNumAndReader(returnNum);
 		return list;
 	}
+	
+	/**
+	 * 通过关键词查找对应的内容
+	 */
+	public ArrayList<WebsiteBlog> find(String name){
+		ArrayList<WebsiteBlog> list = mapper.findBlogByName(name);
+		return list;
+	}
 }
