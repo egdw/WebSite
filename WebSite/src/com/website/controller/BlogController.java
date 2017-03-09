@@ -49,7 +49,7 @@ public class BlogController {
 		}
 		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum,null);
 		Integer pageCount = service.getPageNum(null);
-		//从数据库中获取最新的钱五张图片
+		//从数据库中获取最新的前五张图片
 		ArrayList<WebsiteAlbum> albumbyPage = albumService.selectAlbumbyPage(0, 5);
 		ArrayList<WebsiteComment> comments = commentService.getCommentByNum(5);
 		ArrayList<WebsiteBlog> selectBlogByNumAndComment = service.selectBlogByNumAndComment(5);
@@ -279,5 +279,14 @@ public class BlogController {
 		return blog;
 	}
 	
+	@RequestMapping("blogFind")
+	public String find(Map<String, Object> map,String name){
+		if(name==null){
+			 return "/blog/blog_find";
+		}
+		ArrayList<WebsiteBlog> list = service.find(name);
+		map.put("list", list);
+		return "/blog/blog_find";
+	}
 	
 }
