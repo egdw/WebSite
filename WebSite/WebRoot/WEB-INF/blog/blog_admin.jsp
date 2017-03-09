@@ -96,6 +96,11 @@ body {
 							href="<%=request.getContextPath()%>/login/manager"><span
 								class="glyphicon glyphicon-home"></span> 管理首页</a></li>
 						<li class=""><a
+							href="<%=request.getContextPath()%>/index.jsp"><span
+								class="glyphicon glyphicon-home"></span> 个人主页</a></li>
+						<li class=""><a href="<%=request.getContextPath()%>/blog/"><span
+								class="glyphicon glyphicon-home"></span> 博客首页</a></li>
+						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
 						<li class=""><a
@@ -256,13 +261,25 @@ body {
 											<td>${i.index+1}</td>
 											<td><a href="#" name="${i.index+1}"
 												onclick="editInfo(this)">${index.title}</a></td>
-											<td><a
-												href="<%=request.getContextPath()%>/${index.picUrl}"
+
+											<c:if test="${!empty index.picUrl}">
+												<td><a
+													href="<%=request.getContextPath()%>/${index.picUrl}"
+													class="thumbnail" data-lightbox="example-set"
+													data-title="<div style='padding-top:5px;font-size: 16px'></div>">
+														<img src="<%=request.getContextPath()%>/${index.picUrl}"
+														height="30px" style="height: 30px">
+												</a></td>
+											</c:if>
+											<c:if test="${empty index.picUrl}">
+												<td><a
+												href="<%=request.getContextPath()%>/images/noimg.jpeg"
 												class="thumbnail" data-lightbox="example-set"
 												data-title="<div style='padding-top:5px;font-size: 16px'></div>">
-													<img src="<%=request.getContextPath()%>/${index.picUrl}"
+													<img src="<%=request.getContextPath()%>/images/noimg.jpeg"
 													height="30px" style="height: 30px">
 											</a></td>
+											</c:if>
 											<td>${index.id}</td>
 											<td>${index.clickTimes}</td>
 											<td>${index.commentTimes}</td>
@@ -491,7 +508,8 @@ body {
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default"
-											data-dismiss="modal" id="blog_update_btn" onclick="updateBlog()">更新</button>
+											data-dismiss="modal" id="blog_update_btn"
+											onclick="updateBlog()">更新</button>
 										<button type="button" class="btn btn-default"
 											data-dismiss="modal">了解</button>
 									</div>

@@ -28,12 +28,22 @@
 				<div class="row"
 					style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
 					<div class="col-lg-3 col-sm-3">
+						<c:if test="${!empty index.picUrl}">
+							<div style="text-align: center;">
+								<a href="<%=request.getContextPath()%>/${index.picUrl}"
+									class="thumbnail" data-lightbox="example-1"><img
+									src="<%=request.getContextPath()%>/${index.picUrl}"
+									height="140px"></a>
+							</div>
+						</c:if>
+						<c:if test="${empty index.picUrl}">
 						<div style="text-align: center;">
-							<a href="<%=request.getContextPath()%>/${index.picUrl}"
+							<a href="<%=request.getContextPath()%>/images/noimg.jpeg"
 								class="thumbnail" data-lightbox="example-1"><img
-								src="<%=request.getContextPath()%>/${index.picUrl}"
+								src="<%=request.getContextPath()%>/images/noimg.jpeg"
 								height="140px"></a>
 						</div>
+						</c:if>
 					</div>
 					<div class="col-lg-9 col-sm-9" style="font-size: 14px">
 						<div>
@@ -46,9 +56,9 @@
 					<label style="font-size: 12px;float: left"><fmt:formatDate
 							value="${index.createTime}" pattern="yyyy-mm-dd hh:mm:ss" /></label> <label
 						style="font-size: 12px;width: 70px;text-align: left"> <a
-						style="text-decoration:none;" href="/blog/detail/86">阅读</a>(${index.clickTimes})
+						style="text-decoration:none;" href="detail?pageId=${index.id}">阅读</a>(${index.clickTimes})
 					</label> <label style="font-size: 12px;width: 70px;text-align: left">
-						<a style="text-decoration:none;" href="/blog/detail/86#comment_id">评论</a>(${index.commentTimes})
+						<a style="text-decoration:none;" href="detail?pageId=${index.id}">评论</a>(${index.commentTimes})
 					</label>
 				</div>
 				<hr>
@@ -131,8 +141,8 @@
 				<!-- 下面显示的是阅读排行 -->
 				<div style="padding-top: 50px">
 					<legend>阅读排行</legend>
-					<c:forEach items="${requestScope.topComments}"
-						var="index" varStatus="i">
+					<c:forEach items="${requestScope.topComments}" var="index"
+						varStatus="i">
 						<div style="padding-bottom: 7px;padding-left: 10px">
 							<span class="badge"
 								style="font-size: 20px;width: 27px;color: lightskyblue;background-color: snow">${i.index+1}</span>
@@ -144,8 +154,8 @@
 				<!-- 下面显示的是评价排行 -->
 				<div style="padding-top: 50px">
 					<legend>评论排行</legend>
-					<c:forEach items="${requestScope.topReader}"
-						var="index" varStatus="i">
+					<c:forEach items="${requestScope.topReader}" var="index"
+						varStatus="i">
 						<div style="padding-bottom: 7px;padding-left: 10px">
 							<span class="badge"
 								style="font-size: 20px;width: 27px;color: lightskyblue;background-color: snow">${i.index+1}</span>

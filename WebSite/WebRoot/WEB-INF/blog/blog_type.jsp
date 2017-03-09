@@ -22,12 +22,22 @@
 			<div class="row"
 				style="padding-top: 14px;font-size:12px;height: 200px;overflow: hidden;">
 				<div class="col-lg-3 col-sm-3">
-					<div style="text-align: center">
-						<a href="<%=request.getContextPath()%>/${index.picUrl}"
-							class="thumbnail" data-lightbox="example-1"><img
-							src="<%=request.getContextPath()%>/${index.picUrl}"
-							height="140px"></a>
-					</div>
+					<c:if test="${!empty index.picUrl}">
+							<div style="text-align: center;">
+								<a href="<%=request.getContextPath()%>/${index.picUrl}"
+									class="thumbnail" data-lightbox="example-1"><img
+									src="<%=request.getContextPath()%>/${index.picUrl}"
+									height="140px"></a>
+							</div>
+						</c:if>
+						<c:if test="${empty index.picUrl}">
+						<div style="text-align: center;">
+							<a href="<%=request.getContextPath()%>/images/noimg.jpeg"
+								class="thumbnail" data-lightbox="example-1"><img
+								src="<%=request.getContextPath()%>/images/noimg.jpeg"
+								height="140px"></a>
+						</div>
+						</c:if>
 				</div>
 				<div class="col-lg-9 col-sm-9" style="font-size: 14px;">
 					<div>

@@ -24,8 +24,18 @@
 		</div>
 		<div style="text-align: right;font-size: 16px;padding-top: 10px">
 			<div style="float: left">
-				标签： <a href="/blog/searchByType/0" class="label label-info"
+				<c:if test="${requestScope.blog.type == 0}">
+					标签： <a href="##" class="label label-info"
 					style="font-size: 16px">学习</a>
+				</c:if>
+				<c:if test="${requestScope.blog.type == 1}">
+					标签： <a href="##" class="label label-info"
+					style="font-size: 16px">生活</a>
+				</c:if>
+				<c:if test="${requestScope.blog.type == 2}">
+					标签： <a href="##" class="label label-info"
+					style="font-size: 16px">随笔</a>
+				</c:if>
 			</div>
 			<label style="font-size: 15px;text-align: left"><span
 				class="glyphicon glyphicon-eye-open" style="color: gray"

@@ -29,7 +29,8 @@
 		<div class="collapse navbar-collapse" style="background-color:	#FFFFF0">
 			<ul class="nav navbar-nav">
 				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-				<li><a href="<%=request.getContextPath()%>/blog/">首页</a></li>
+				<li><a href="<%=request.getContextPath()%>/blog/">博客主页</a></li>
+				<li><a href="<%=request.getContextPath()%>/index.jsp">首页</a></li>
 				<li class="dropdown"><a href="http://kkys.online/blog/#"
 					class="dropdown-toggle" data-toggle="dropdown" role="button"
 					aria-haspopup="true" aria-expanded="false">分类 <span
@@ -48,9 +49,9 @@
 			</ul>
 			<div style="float: right;" style="background-color: 	#FFFFF0">
 				<div class="input-group" style="padding-top: 9px">
-					<form action="http://kkys.online/blog/searchByTitle" method="post">
+					<form action="blogFind" method="post">
 						<input style="font-size:18px;width: 280px" class="form-control"
-							name="titleSearch" placeholder="搜索你感兴趣的内容...">
+							name="name" placeholder="搜索你感兴趣的内容...">
 						<button class="btn btn-default" type="submit">搜索</button>
 					</form>
 				</div>

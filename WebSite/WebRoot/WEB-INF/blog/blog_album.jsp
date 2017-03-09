@@ -13,12 +13,25 @@
 		<hr>
 			<c:forEach items="${requestScope.list}" var="index" varStatus="i">
 				<div class="col-xs-3 col-md-3 col-lg-3">
-					<a href="<%=request.getContextPath()%>/${index.url}"
+					<c:if test="${!empty index.url}">
+							<a href="<%=request.getContextPath()%>/${index.url}"
 						class="thumbnail" data-lightbox="example-set"
 						data-title="${index.title}">
 						<img src="<%=request.getContextPath()%>/${index.url}" alt="..."
 						height="180px" style="height: 180px">
 					</a>
+						</c:if>
+						<c:if test="${empty index.url}">
+						<div style="text-align: center;">
+						<a href="<%=request.getContextPath()%>/images/noimg.jpeg"
+						class="thumbnail" data-lightbox="example-set"
+						data-title="${index.title}">
+						<img src="<%=request.getContextPath()%>/images/noimg.jpeg" alt="..."
+						height="180px" style="height: 180px">
+					</a>
+						</div>
+						</c:if>
+					
 					<div class="caption">
 						<div>
 							<label>${index.title}</label>

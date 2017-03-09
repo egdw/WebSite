@@ -83,6 +83,12 @@ body {
 						<li class=""><a
 							href="<%=request.getContextPath()%>/login/manager"><span
 								class="glyphicon glyphicon-home"></span> 管理首页</a></li>
+								<li class=""><a
+							href="<%=request.getContextPath()%>/index.jsp"><span
+								class="glyphicon glyphicon-home"></span> 个人主页</a></li>
+						<li class=""><a
+							href="<%=request.getContextPath()%>/blog/"><span
+								class="glyphicon glyphicon-home"></span> 博客首页</a></li>
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>

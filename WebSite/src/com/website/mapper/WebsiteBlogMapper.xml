@@ -191,7 +191,7 @@
   </select>
 	
 	<select id="findBlogByName" resultMap="resultMap">
-		select * from website_blog where title like '%#{0}%';
+		select * from website_blog where title like  CONCAT('%',#{0},'%') order by id desc;
 	</select>
 	
 	<select id="selectBlogByNumAndReader" resultMap="resultMap">
