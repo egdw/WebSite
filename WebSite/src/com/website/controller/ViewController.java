@@ -46,4 +46,12 @@ public class ViewController {
 		return "/project/temp_list";
 	}
 	
+	/**
+	 * 进入音乐
+	 * @return
+	 */
+	@RequestMapping("music")
+	public String music(){
+		return "/music/index";
+	}
 }
