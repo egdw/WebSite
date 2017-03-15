@@ -52,6 +52,7 @@ body{background:#000;}
 								<li><a href="blog/">我的博客</a></li>
 								<li><a href="funnyView.do">趣味网页</a></li>
 								<li><a href="tempView.do">临时网页</a></li>
+								<li><a href="music">我的音乐</a></li>
 							</ul>
 						</li>
 					</ul>

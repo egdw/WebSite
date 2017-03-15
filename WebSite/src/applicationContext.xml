@@ -101,8 +101,10 @@
 				/comment/add = anon
 				/comment/get = anon
 				/blog/** =anon
+				/music/** =anon
 				/ = anon
 				/login/Login.do = anon
+				/music = anon
 				/unauthorized.jsp = anon
 				/login.jsp = anon
 				/*.jar = anon

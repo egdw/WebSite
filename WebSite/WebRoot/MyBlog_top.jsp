@@ -43,7 +43,7 @@
 						<li><a href="type?pageNum=0&typeId=2">随笔</a></li>
 					</ul></li>
 				<li><a href="<%=request.getContextPath()%>/blog/image">相册</a></li>
-				<li><a href="http://kkys.online/blog/#" data-toggle="modal"
+				<li><a href="##" data-toggle="modal"
 					data-target="#about-modal">关于</a></li>
 				<li><a href="<%=request.getContextPath()%>/login/manager">管理</a></li>
 			</ul>
