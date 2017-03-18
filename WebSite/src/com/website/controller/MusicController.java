@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.website.entites.NeteaseMusic;
 import com.website.utils.NeteaseMusicUtils;
+import com.website.utils.NeteaseMusicUtils.UrlConstants;
 
 @Controller
 @RequestMapping("music")
@@ -28,27 +30,19 @@ public class MusicController {
 
 	/**
 	 * 根据歌曲名和名字查询
+	 * 
+	 * @throws UnsupportedEncodingException
 	 */
-	@RequestMapping(value="search")
+	@RequestMapping(value = "search")
 	public String search(Integer pageNum, String songsName,
-			Map<String, Object> map) {
+			Map<String, Object> map) throws UnsupportedEncodingException {
 		if (songsName == null) {
 			map.put("errorMessage", "查询失败:没有找到参数");
 		}
 		if (pageNum == null) {
 			pageNum = 0;
 		}
-		System.out.println(new String(songsName));
-		try {
-			FileOutputStream stream = new FileOutputStream(new File("/Users/hdy/Downloads/201411081504537201/1.txt"),true);
-			stream.write(songsName.getBytes());
-			stream.flush();
-			stream.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		NeteaseMusic searchMusic = NeteaseMusicUtils.SearchMusic(songsName, 15,
-				1, 0);
+		NeteaseMusic searchMusic = NeteaseMusicUtils.SearchMusic(getURLEncoderString(songsName), 15, 1, 0);
 		map.put("errorMessage", "");
 		if (searchMusic != null) {
 			int code = searchMusic.getCode();
@@ -68,5 +62,25 @@ public class MusicController {
 		}
 		return "/music/list";
 	}
-
+	
+	
+	 /**
+     * URL 转码
+     *
+     * @return String
+     * @author lifq
+     * @date 2015-3-17 下午04:10:28
+     */
+    public static String getURLEncoderString(String str) {
+        String result = "";
+        if (null == str) {
+            return "";
+        }
+        try {
+            result = java.net.URLEncoder.encode(str, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 }

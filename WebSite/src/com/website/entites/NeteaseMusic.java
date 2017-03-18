@@ -1,6 +1,5 @@
 package com.website.entites;
 
-import java.util.ArrayList;
 
 public class NeteaseMusic {
 	private int code;

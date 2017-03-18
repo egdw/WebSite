@@ -29,7 +29,6 @@ public class NeteaseMusicUtils {
 	 */
 	public static NeteaseMusic SearchMusic(String s,int limit,int type,int offset){
 		String url = UrlConstants.CLOUD_MUSIC_API_SEARCH + "type="+type+"&s='" + s + "'&limit="+limit+"&offset="+offset;
-		System.out.println(url);
 		String request = InternetUtil.request(url);
 		NeteaseMusic songs = null;
 		if(request!=null && !request.isEmpty()){
@@ -49,7 +48,6 @@ public class NeteaseMusicUtils {
 	{
 		String url = UrlConstants.CLOUD_MUSIC_API_MUSICINGO + "id="+id+"&ids=%5B"+ids+"%5D";
 		String request = InternetUtil.request(url);
-		System.out.println(request);
 	}
 
 	/**
