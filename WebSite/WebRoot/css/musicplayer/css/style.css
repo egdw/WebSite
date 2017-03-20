@@ -346,13 +346,11 @@ label.to-lyrics-label {
 	  display: none;
 }
 
-
-/* Media Queries */
-@media all and (max-width: 768px) {
-	  #container, #player { width: 300px; height: 300px;}
-	  #progress { width: 320px; height: 320px; margin-top: -5px; margin-left: -5px; }
-	  label, .lyrics, .scroll { display: none;  margin-top: 125px;}
-	  .cover { padding-top: 125px; }
+@media (max-width: 768px) {
+	#container, #player { width: 150px; height: 150px;}
+	  #progress { width: 160px; height: 160px; margin-top: -5px; margin-left: -5px; }
+	  label, .lyrics, .scroll { display: none; }
+	  .cover { padding-top: 46px; }
 	  button { margin: 4px; }
 	  button:first-of-type, button:last-of-type { display: none; }
 	  input[type='range'] { display: block; margin-top: -76px; height: 1px; }
@@ -361,7 +359,25 @@ label.to-lyrics-label {
 	  .author { font-size: 10px; }
 }
 
+@media  (max-width:700px){
+	 .cover { padding-top: 26px; margin-top: 34px;}
+}
 
+@media  (max-width:600px){
+	 .cover { padding-top: 26px; margin-top: 36px;}
+}
+
+@media  (max-width:550px){
+	 .cover { padding-top: 26px; margin-top: 28px;}
+}
+
+@media  (max-width:400px){
+	 .cover { padding-top: 26px; margin-top: 30px;}
+}
+
+@media  (max-width:320px){
+	 .cover { padding-top: 26px; margin-top: 30px;}
+}
 /* Media Queries */
 /* @media all and (max-width: 768px) {
 	  #container, #player { width: 150px; height: 150px;}
