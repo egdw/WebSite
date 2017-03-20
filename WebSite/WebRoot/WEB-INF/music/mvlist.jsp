@@ -28,21 +28,17 @@
 				<c:forEach items="${requestScope.lists}" var="index">
 					<div class="col-sm-6 col-md-4">
 						<div class="thumbnail">
-							<img src="${index.album.picUrl}" width="400px" height="350px"
-								style="width:400px;height:350px;overflow:hidden;"
-								alt="${index.name}">
+							<img src="${index.cover}" width="400px" height="350px" style="width:400px;height:350px;overflow:hidden;" alt="${index.name}">
 							<div class="caption">
 								<h4>${index.name}</h4>
 								<p>
 									<c:forEach items="${index.artists}" var="item">
-										<a href="http://music.163.com/#/artist?id=${item.id}"
-											target="_blank">${item.name}</a>|
+										<a href="http://music.163.com/#/artist?id=${item.id}" target="_blank">${item.name}</a>|
 									</c:forEach>
 								</p>
 								<p>
-									<a href="playMusic?id=${index.id}" target="_blank"
-										class="btn btn-primary" role="button">播放</a> <a href="#"
-										class="btn btn-default" role="button">下载</a>
+									<a href="openMV?mvId=${index.id}" target="_blank" class="btn btn-primary" role="button">播放</a> <a
+										href="openMV?mvId=${index.id}" class="btn btn-default" role="button">下载</a>
 								</p>
 							</div>
 						</div>
@@ -55,18 +51,18 @@
 	<!-- 分页开始 -->
 	<center>
 		<div class="btn-group" role="group" aria-label="...">
-			<form action="search" method="post" style="float: left;">
+			<form action="mvsearch" method="post" style="float: left;">
 				<input type="hidden" name="pageNum"
 					value="${requestScope.pageNum-1}"> <input type="hidden"
 					name="songsName" value="${requestScope.songsName}"> <input
 					type="submit" class="btn btn-default" value="上一页">
 			</form>
-			<form action="search" method="post" style="float: left;">
+			<form action="mvsearch" method="post" style="float: left;">
 				<input type="hidden" name="pageNum" value="0"> <input
 					type="hidden" name="songsName" value="${requestScope.songsName}">
 				<button type="submit" class="btn btn-default">第一页</button>
 			</form>
-			<form action="search" method="post" style="float: left;">
+			<form action="mvsearch" method="post" style="float: left;">
 				<input type="hidden" name="pageNum"
 					value="${requestScope.pageNum+1}"> <input type="hidden"
 					name="songsName" value="${requestScope.songsName}">

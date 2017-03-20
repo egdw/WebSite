@@ -16,7 +16,6 @@
 <div class="jumbotron">
     <center><h1>欢迎您使用恶搞大王音乐</h1></center>
     <center><p>本网站采用网易云音乐的接口,所有的音乐全部来源于网易云音乐.涉及侵权.使用需谨慎!</p></center>
-    <center><p>本页面采用Bootstrap制作</p></center>
     <center><p><a class="btn btn-primary btn-lg" href="<%=request.getContextPath()%>/music/searchView" role="button">开始使用</a></p></center>
 </div>
 

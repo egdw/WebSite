@@ -15,10 +15,18 @@
 <center>
     <form class="navbar-form navbar-center" action="search" method="post" accept-charset="utf-8">
         <div class="form-group">
-            <input type="text" name="songsName" class="form-control" placeholder="请在这里进行搜索!">
+            <input type="text" name="songsName" class="form-control" placeholder="音乐搜索">
         </div>
-        <button type="submit" class="btn btn-default">查询</button>
+        <button type="submit" class="btn btn-default">搜索</button>
     </form>
+    
+    <form class="navbar-form navbar-center" action="mvsearch" method="post" accept-charset="utf-8">
+    	 <div class="form-group">
+            <input type="text" name="songsName" class="form-control" placeholder="MV搜索">
+        </div>
+        <button type="submit" class="btn btn-default">搜索</button>
+    </form>
+
     <div class="list-group">
         <a href="#" class="list-group-item active">
             <h4 class="list-group-item-heading">我的最爱</h4>
@@ -50,7 +58,6 @@
         <a href="#" class="list-group-item">lostrivers</a>
     </div>
 </center>
-
 </body>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
