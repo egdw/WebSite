@@ -17,7 +17,6 @@
 	<!-- 导航栏开始-->
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
@@ -26,14 +25,14 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">恶搞大王音乐</a>
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/music/">恶搞大王音乐</a>
 			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">首页 <span class="sr-only">(current)</span></a></li>
+					<li class=""><a href="<%=request.getContextPath()%>/music/">首页 <span class="sr-only">(current)</span></a></li>
+					<li class=""><a href="<%=request.getContextPath()%>/music/searchView">MV搜索点击这里!</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">关于 <span class="caret"></span></a>
@@ -45,7 +44,8 @@
 								data-target="#aboutInterface" data-backdrop="false">关于接口</a></li>
 						</ul></li>
 				</ul>
-				<form class="navbar-form navbar-left" accept-charset="utf-8" action="<%=request.getContextPath()%>/music/search" method="post">
+				<form class="navbar-form navbar-left" accept-charset="utf-8"
+					action="<%=request.getContextPath()%>/music/search" method="post">
 					<div class="form-group">
 						<input type="text" name="songsName" class="form-control"
 							placeholder="请在这里进行搜索!">
@@ -53,17 +53,18 @@
 					<button type="submit" class="btn btn-default">搜索</button>
 				</form>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#">个人首页</a></li>
+					<li><a href="<%=request.getContextPath()%>/">个人首页</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">其他地址 <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">我的博客</a></li>
-							<li><a href="#">我的作品</a></li>
-							<li><a href="#">趣味网页</a></li>
-							<li><a href="#">临时网页</a></li>
+							<li><a href="<%=request.getContextPath()%>/project/MyProject.do">我的作品</a></li>
+								<li><a href="<%=request.getContextPath()%>/blog/">我的博客</a></li>
+								<li><a href="<%=request.getContextPath()%>/funnyView.do">趣味网页</a></li>
+								<li><a href="<%=request.getContextPath()%>/tempView.do">临时网页</a></li>
+								<li><a href="<%=request.getContextPath()%>/music">我的音乐</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#">关于我</a></li>
+							<li><a href="<%=request.getContextPath()%>/AboutMy/index.html">关于我</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -85,12 +86,7 @@
 					<h4 class="modal-title" id="myModalLabel">关于接口</h4>
 				</div>
 				<div class="modal-body">
-					<h1>接口是我转载的!</h1>
-					<h2>接口是我转载的!</h2>
-					<h3>
-						<a href="http://download.csdn.net/detail/qq_21265915/9670422"
-							target="_blank">源地址</a>
-					</h3>
+					<p>自己上网找!</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">了解</button>
