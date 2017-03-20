@@ -12,7 +12,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/musicplayer/css/style.css"
 	media="screen" type="text/css" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
 		<canvas id="progress" width="320" height="320"></canvas>
 		<!-- progress bar -->
 		<div id="player">
-			<audio id="audio" controls>
+			<audio id="audio" controls hidden="hidden">
 				<source src="${requestScope.songs[0].mp3Url}" type="audio/mpeg"
 					codecs="mp3"></source>
 			</audio>
