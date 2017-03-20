@@ -7,9 +7,11 @@ public class NeteaseMusicSongs {
 	private String name;
 	private ArrayList<NeteaseMusicArtists> artists;
 	private NeteaseMusicAlbum album;
-	private String audio;
+	private String mp3Url;
 	private long djProgramId;
 	private String page;
+
+	private ArrayList<String> lyrics;
 
 	public long getId() {
 		return id;
@@ -43,12 +45,12 @@ public class NeteaseMusicSongs {
 		this.album = album;
 	}
 
-	public String getAudio() {
-		return audio;
+	public String getMp3Url() {
+		return mp3Url;
 	}
 
-	public void setAudio(String audio) {
-		this.audio = audio;
+	public void setMp3Url(String mp3Url) {
+		this.mp3Url = mp3Url;
 	}
 
 	public long getDjProgramId() {
@@ -70,8 +72,33 @@ public class NeteaseMusicSongs {
 	@Override
 	public String toString() {
 		return "NeteaseMusicSongs [id=" + id + ", name=" + name + ", artists="
-				+ artists + ", album=" + album + ", audio=" + audio
+				+ artists + ", album=" + album + ", mp3Url=" + mp3Url
 				+ ", djProgramId=" + djProgramId + ", page=" + page + "]";
+	}
+
+	public NeteaseMusicSongs(long id, String name,
+			ArrayList<NeteaseMusicArtists> artists, NeteaseMusicAlbum album,
+			String mp3Url, long djProgramId, String page) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.artists = artists;
+		this.album = album;
+		this.mp3Url = mp3Url;
+		this.djProgramId = djProgramId;
+		this.page = page;
+	}
+
+	public NeteaseMusicSongs() {
+		super();
+	}
+
+	public ArrayList<String> getLyrics() {
+		return lyrics;
+	}
+
+	public void setLyrics(ArrayList<String> lyrics) {
+		this.lyrics = lyrics;
 	}
 
 }
