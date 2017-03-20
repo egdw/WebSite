@@ -6,7 +6,7 @@
 
 /* Basic */
 *, *:before, *:after { box-sizing: border-box; }
-body { margin: 0; min-height: 100%; background: #36648B; font-family: 'Roboto Condensed', sans-serif; font-weight: 300; }
+body { margin: 0; min-height: 100%; background: #EEE; font-family: 'Roboto Condensed', sans-serif; font-weight: 300; }
 a { color: #FFF; text-decoration: none; }
 a:hover { color: #26C5CB; }
 p { margin: 0; }
@@ -346,49 +346,16 @@ label.to-lyrics-label {
 	  display: none;
 }
 
-@media (max-width: 768px) {
-	#container, #player { width: 150px; height: 150px;}
-	  #progress { width: 160px; height: 160px; margin-top: -5px; margin-left: -5px; }
-	  label, .lyrics, .scroll { display: none; }
-	  .cover { padding-top: 46px; }
-	  button { margin: 4px; }
-	  button:first-of-type, button:last-of-type { display: none; }
-	  input[type='range'] { display: block; margin-top: -76px; height: 1px; }
-	  .info { margin-top: 70px; }
-	  .song { font-size: 12px; }
-	  .author { font-size: 10px; }
-}
-
-@media  (max-width:700px){
-	 .cover { padding-top: 26px; margin-top: 34px;}
-}
-
-@media  (max-width:600px){
-	 .cover { padding-top: 26px; margin-top: 36px;}
-}
-
-@media  (max-width:550px){
-	 .cover { padding-top: 26px; margin-top: 28px;}
-}
-
-@media  (max-width:400px){
-	 .cover { padding-top: 26px; margin-top: 30px;}
-}
-
-@media  (max-width:320px){
-	 .cover { padding-top: 26px; margin-top: 30px;}
-}
 /* Media Queries */
-/* @media all and (max-width: 768px) {
-	  #container, #player { width: 150px; height: 150px;}
-	  #progress { width: 160px; height: 160px; margin-top: -5px; margin-left: -5px; }
-	  label, .lyrics, .scroll { display: none; }
-	  .cover { padding-top: 46px; }
+@media all and (max-width: 768px) {
+	  #container, #player { width: 280px; height: 280px;}
+	  #progress { width: 290px; height: 290px; margin-top: -5px; margin-left: -5px; }
+	  label, .lyrics, .scroll { display: none;  }
+	  .cover { padding-top: 46px; margin-top: 70px;}
 	  button { margin: 4px; }
 	  button:first-of-type, button:last-of-type { display: none; }
 	  input[type='range'] { display: block; margin-top: -76px; height: 1px; }
 	  .info { margin-top: 70px; }
 	  .song { font-size: 12px; }
 	  .author { font-size: 10px; }
-} */
-
+}
