@@ -24,6 +24,8 @@ public class InternetUtil {
 			URL url = new URL(path);
 			HttpURLConnection openConnection = (HttpURLConnection) url
 					.openConnection();
+			openConnection.setRequestProperty("Cookie", "appver=1.5.0.75771");
+			openConnection.setRequestProperty("Referer", "http://music.163.com/");
 			openConnection.setRequestMethod("POST");
 			openConnection.connect();
 			//转换成utf-8.解决页面乱码问题
