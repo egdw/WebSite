@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>音乐搜索</title>
+<title>MV检索</title>
 </head>
 <link
 	href="<%=request.getContextPath()%>/css/music_css/bootstrap.min.css"
@@ -71,6 +71,7 @@
 		</div>
 	</center>
 	<!-- 分页结束 -->
+	<!--警告信息-->
 </body>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>

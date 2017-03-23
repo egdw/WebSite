@@ -32,32 +32,27 @@
             <h4 class="list-group-item-heading">我的最爱</h4>
             <p class="list-group-item-text">只推荐我喜欢的❤️</p>
         </a>
-        <a href="#" class="list-group-item">邓紫棋</a>
-        <a href="#" class="list-group-item">邓紫棋</a>
-        <a href="#" class="list-group-item">邓紫棋</a>
-        <a href="#" class="list-group-item">邓紫棋</a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item active">
-            <h4 class="list-group-item-heading">推荐神曲</h4>
-            <p class="list-group-item-text">神奇的歌曲😯️</p>
-        </a>
-        <a href="#" class="list-group-item">lostrivers</a>
-        <a href="#" class="list-group-item">lostrivers</a>
-        <a href="#" class="list-group-item">lostrivers</a>
-        <a href="#" class="list-group-item">lostrivers</a>
-    </div>
-    <div class="list-group">
-        <a href="#" class="list-group-item active">
-            <h4 class="list-group-item-heading">洗脑歌曲</h4>
-            <p class="list-group-item-text">僵尸吃掉了你的脑子😱️</p>
-        </a>
-        <a href="#" class="list-group-item">lostrivers</a>
-        <a href="#" class="list-group-item">lostrivers</a>
-        <a href="#" class="list-group-item">lostrivers</a>
-        <a href="#" class="list-group-item">lostrivers</a>
+        <a href="playMusic?id=31234186" class="list-group-item" target="_blank">邓紫棋-单行的轨道</a>
+        <a href="playMusic?id=36270426" class="list-group-item" target="_blank">邓紫棋-来自天堂的魔鬼</a>
+        <a href="playMusic?id=36103237" class="list-group-item" target="_blank">邓紫棋-一路逆风</a>
+        <a href="playMusic?id=29450548" class="list-group-item" target="_blank">邓紫棋-龙卷风</a>
+        <a href="playMusic?id=449818741" class="list-group-item" target="_blank">邓紫棋-光年之外</a>
+        <a href="playMusic?id=36024806" class="list-group-item" target="_blank">邓紫棋-再见</a>
+        <a href="playMusic?id=420513158" class="list-group-item" target="_blank">邓紫棋-红蔷薇白玫瑰</a>
+        <a href="playMusic?id=234015" class="list-group-item" target="_blank">邓紫棋-A.I.N.Y. 爱你</a>
+        <a href="playMusic?id=28793502" class="list-group-item" target="_blank">邓紫棋-后会无期</a>
+        <a href="playMusic?id=4466775" class="list-group-item" target="_blank">lostrivers</a>
     </div>
 </center>
+<!--警告信息-->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <center>
+            <div class="alert alert-info" role="alert" style="margin: 0px auto">本站所有源码均开源.转载请标注源作者!!</div>
+        </center>
+    </div>
+</nav>
+<!--警告信息结束-->
 </body>
 <script src="<%=request.getContextPath()%>/js/jquery.min.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>

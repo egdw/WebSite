@@ -65,7 +65,6 @@ public class NeteaseMusicUtils {
 			parseObject.getData().getBrs().setLq(lq);
 			parseObject.getData().getBrs().setMq(mq);
 			parseObject.getData().getBrs().setHq(hq);
-			System.out.println(parseObject);
 			return parseObject;
 		}
 		return null;

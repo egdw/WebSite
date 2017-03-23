@@ -51,7 +51,7 @@
 				class="glyphicon glyphicon-thumbs-up" style="color: gray"
 				aria-hidden="true"></span> 推荐(0)</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label
 				style="font-size: 15px"><fmt:formatDate
-					value="${index.createTime}" pattern="yyyy-mm-dd hh:mm:ss" /></label>
+					value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
 		</div>
 		<hr>
 		<div style="padding-top: 4px;padding-left: 10px;padding-right: 10px;">
@@ -77,7 +77,7 @@
 				<div style="font-size:16px;padding: 20px 50px 10px 45px;">${index.content}</div>
 				<div style="color:gray;float: right">
 					<i>评论于 <fmt:formatDate value="${index.createTime}"
-							pattern="yyyy-mm-dd hh:mm:ss" /></i>
+							pattern="yyyy-MM-dd HH:mm:ss" /></i>
 				</div>
 				<shiro:hasRole name="super_admin">
 					<input type="button" class="delBtn" name="${index.id}" value="删除"/>

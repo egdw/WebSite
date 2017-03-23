@@ -41,8 +41,8 @@
 								</p>
 								<p>
 									<a href="playMusic?id=${index.id}" target="_blank"
-										class="btn btn-primary" role="button">播放</a> <a href="#"
-										class="btn btn-default" role="button">下载</a>
+										class="btn btn-primary" role="button">播放</a> <a href="${index.mp3Url}"
+										class="btn btn-default" role="button" download="${index.name}">下载</a>
 								</p>
 							</div>
 						</div>

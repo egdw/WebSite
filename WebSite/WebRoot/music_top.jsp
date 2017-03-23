@@ -31,8 +31,11 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class=""><a href="<%=request.getContextPath()%>/music/">首页 <span class="sr-only">(current)</span></a></li>
-					<li class=""><a href="<%=request.getContextPath()%>/music/searchView">MV搜索点击这里!</a></li>
+					<li class=""><a href="<%=request.getContextPath()%>/music/">首页
+							<span class="sr-only">(current)</span>
+					</a></li>
+					<li class=""><a
+						href="<%=request.getContextPath()%>/music/searchView">MV搜索点击这里!</a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">关于 <span class="caret"></span></a>
@@ -58,13 +61,15 @@
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">其他地址 <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="<%=request.getContextPath()%>/project/MyProject.do">我的作品</a></li>
-								<li><a href="<%=request.getContextPath()%>/blog/">我的博客</a></li>
-								<li><a href="<%=request.getContextPath()%>/funnyView.do">趣味网页</a></li>
-								<li><a href="<%=request.getContextPath()%>/tempView.do">临时网页</a></li>
-								<li><a href="<%=request.getContextPath()%>/music">我的音乐</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/project/MyProject.do">我的作品</a></li>
+							<li><a href="<%=request.getContextPath()%>/blog/">我的博客</a></li>
+							<li><a href="<%=request.getContextPath()%>/funnyView.do">趣味网页</a></li>
+							<li><a href="<%=request.getContextPath()%>/tempView.do">临时网页</a></li>
+							<li><a href="<%=request.getContextPath()%>/music">我的音乐</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="<%=request.getContextPath()%>/AboutMy/index.html">关于我</a></li>
+							<li><a
+								href="<%=request.getContextPath()%>/AboutMy/index.html">关于我</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -86,7 +91,28 @@
 					<h4 class="modal-title" id="myModalLabel">关于接口</h4>
 				</div>
 				<div class="modal-body">
-					<p>自己上网找!</p>
+					<p>获取单独MV信息</p>
+					<p>URL url = new
+						URL("http://music.163.com/api/mv/detail?id=5382080&type=mp4");</p>
+					<p>重要的内容搜索</p>
+					<p>offset：偏移量（分页用） limit：获取的数量 type：搜索的类型 歌曲 1 专辑 10 歌手 100
+						歌单 1000 用户 1002 mv 1004 歌词 1006 主播电台 1009</p>
+					<p>URL url = new
+						URL("http://music.163.com/api/search/pc?s=告白气球&offset=0&limit=10&type=1006");</p>
+					<p>搜索歌词</p>
+					<p>URL url = new
+						URL("http://music.163.com/api/song/lyric?os=pc&id=418603077&lv=-1&kv=-1&tv=-1");</p>
+					<p>获取到详细的歌曲信息</p>
+					<p>URL url = new
+						URL("http://music.163.com/api/song/detail/?id=418603077&ids=[418603077]");</p>
+					<p>URL url = new
+						URL("http://music.163.com/api/artist/albums/166009?id=166009&offset=0&total=true&limit=5");</p>
+					<p>头信息</p>
+					<p>openConnection.setRequestProperty("Cookie",
+						"appver=1.5.0.75771");
+						openConnection.setRequestProperty("Referer",
+						"http://music.163.com/");</p>
+					<p>我只能帮你们到这里了!</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">了解</button>

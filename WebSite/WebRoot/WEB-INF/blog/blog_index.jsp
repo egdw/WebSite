@@ -54,7 +54,7 @@
 				</div>
 				<div style="text-align: right">
 					<label style="font-size: 12px;float: left"><fmt:formatDate
-							value="${index.createTime}" pattern="yyyy-mm-dd hh:mm:ss" /></label> <label
+							value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></label> <label
 						style="font-size: 12px;width: 70px;text-align: left"> <a
 						style="text-decoration:none;" href="detail?pageId=${index.id}">阅读</a>(${index.clickTimes})
 					</label> <label style="font-size: 12px;width: 70px;text-align: left">
@@ -179,7 +179,7 @@
 									aria-hidden="true"></span> ${index.content}</span>
 							</div>
 							<span style="color:gray"> <i><fmt:formatDate
-										value="${index.createTime}" pattern="yyyy-mm-dd hh:mm:ss" /></i>
+										value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></i>
 							</span>
 						</div>
 						<hr>

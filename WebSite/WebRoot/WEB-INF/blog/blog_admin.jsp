@@ -285,7 +285,7 @@ body {
 											<td>${index.commentTimes}</td>
 											<td>${index.agreeWithTimes}</td>
 											<td><fmt:formatDate value="${index.createTime}"
-													pattern="yyyy-mm-dd hh:mm:ss" /></td>
+													pattern="yyyy-MM-dd HH:mm:ss" /></td>
 											<td>
 												<div class="btn-group btn-group-xs">
 													<button type="button" class="btn btn-success"

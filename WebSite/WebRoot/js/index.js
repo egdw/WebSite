@@ -59,7 +59,7 @@ function updateProgress() {
 
 function resetPlayer() {
 	  audio.currentTime = 0; context.clearRect(0,0,canvas.width,canvas.height);
-	  playpause.title = "Play";
+  playpause.title = "Play";
 	  playpause.innerHTML = '<i class="fa fa-play fa-3x"></i>';
 }
 

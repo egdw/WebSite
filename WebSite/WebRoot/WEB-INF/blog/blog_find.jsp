@@ -38,7 +38,7 @@
 				</div>
 			</div>
 			<div style="text-align: right;padding-top: 20px">
-				<label style="font-size: 13px"><fmt:formatDate value="${index.createTime}" pattern="yyyy-mm-dd hh:mm:ss"/></label>
+				<label style="font-size: 13px"><fmt:formatDate value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></label>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label style="font-size: 15px"><span
 					class="glyphicon glyphicon-eye-open" style="color: gray"
 					aria-hidden="true"></span> <a style="text-decoration:none;"
