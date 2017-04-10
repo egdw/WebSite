@@ -24,7 +24,7 @@ img{max-width:100%;}
 /*end reset*/
 /****-----start-body----****/
 body{
-	background: url(../images/bg.jpg) no-repeat 0px 0px;
+	background:#0A0A0A;
 	background-size:100% 100%;  
 	font-family: 'Open Sans', sans-serif;
 	background-size:cover;
@@ -63,7 +63,7 @@ h1 {
 	  text-align: center;
 	  padding-top: 4em;
 	  font-weight: 400;
-	  color: #2B2B36;
+	  color: #FFFFFF;
 	  font-size: 2em;
 }
 .login-form {
@@ -222,7 +222,7 @@ label.lbl-3 {
 	}
 	
 	body {
-	  min-height: 811px;
+	  min-height: 473px;
 	}
 }
 @media (max-width:1366px){
@@ -233,7 +233,7 @@ label.lbl-3 {
 	  margin-top: 3em;
 	}
 	body {
-	  min-height: 768px;
+	  min-height: 473px;
 	}
 }
 @media (max-width:1280px){
@@ -241,7 +241,7 @@ label.lbl-3 {
 	   background: url(../images/pass.png) no-repeat 336px 18px;
 	}
 	body {
-	  min-height: 711px;
+	  min-height: 473px;
 	}
 	.copy-rights {
 	  margin-top: 0.5em;
@@ -261,7 +261,7 @@ label.lbl-3 {
 	  padding-top: 2em;
 	}
 	body {
-	  min-height: 675px;
+	  min-height: 473px;
 	}
 }
 @media (max-width:768px){
@@ -273,7 +273,7 @@ label.lbl-3 {
 	  background: url(../images/pass.png) no-repeat 342px 18px;
 	}
 	body {
-	  min-height: 929px;
+	  min-height: 473px;
 	}
 }
 @media (max-width:640px){
@@ -339,7 +339,7 @@ label.lbl-3 {
 	  margin-top: 2em;
 	}
 	body {
-	    min-height: 504px;
+	    min-height: 473px;
 	}
 	input[type="submit"] {
 	  font-size: 28px;

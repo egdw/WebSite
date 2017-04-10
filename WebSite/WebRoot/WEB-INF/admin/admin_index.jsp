@@ -1,12 +1,12 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!-- saved from url=(0028)http://love.kfj.cc/index.php -->
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="charset" content="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>欢迎你</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <script
@@ -52,7 +52,8 @@ body {
 				<span class="sr-only">后台管理</span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<%=request.getContextPath()%>/login/manager">后台管理</a>
+			<a class="navbar-brand"
+				href="<%=request.getContextPath()%>/login/manager">后台管理</a>
 		</div>
 
 		<div class="collapse navbar-collapse"
@@ -65,11 +66,10 @@ body {
 						<li class=""><a
 							href="<%=request.getContextPath()%>/login/manager"><span
 								class="glyphicon glyphicon-home"></span> 管理首页</a></li>
-								<li class=""><a
+						<li class=""><a
 							href="<%=request.getContextPath()%>/index.jsp"><span
 								class="glyphicon glyphicon-home"></span> 个人主页</a></li>
-						<li class=""><a
-							href="<%=request.getContextPath()%>/blog/"><span
+						<li class=""><a href="<%=request.getContextPath()%>/blog/"><span
 								class="glyphicon glyphicon-home"></span> 博客首页</a></li>
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
@@ -80,7 +80,8 @@ body {
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_funny_manager.do"><span
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
-						<li><a href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
+						<li><a
+							href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
 						<li><a href="<%=request.getContextPath()%>/blog/admin"><span
 								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
@@ -93,11 +94,14 @@ body {
 						class="glyphicon glyphicon-off"></span> 退出登录</a></li>
 			</ul>
 			<ul class="nav navbar-nav">
-				<li class="dropdown"><a href="<%=request.getContextPath()%>/AboutMy/index.html"
+				<li class="dropdown"><a
+					href="<%=request.getContextPath()%>/AboutMy/index.html"
 					class="dropdown-toggle" data-toggle="dropdown"><span
 						class="glyphicon glyphicon-book"></span> 关于 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-						<li><a href="<%=request.getContextPath()%>/AboutMy/index.html" target="_blank">恶搞大王</a></li>
+						<li><a
+							href="<%=request.getContextPath()%>/AboutMy/index.html"
+							target="_blank">恶搞大王</a></li>
 					</ul></li>
 			</ul>
 		</div>
@@ -110,9 +114,11 @@ body {
 					role="complementary">
 					<ul class="nav bs-sidenav">
 						<li></li>
-						<li class="active"><a href="<%=request.getContextPath()%>/login/manager"><span
+						<li class="active"><a
+							href="<%=request.getContextPath()%>/login/manager"><span
 								class="glyphicon glyphicon-home"></span> 管理首页</a></li>
-						<li class=""><a href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
+						<li class=""><a
+							href="<%=request.getContextPath()%>/manager/manager_person_setting.do"><span
 								class="glyphicon glyphicon-wrench"></span> 个人设置</a></li>
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_project_manager.do"><span
@@ -120,7 +126,8 @@ body {
 						<li class=""><a
 							href="<%=request.getContextPath()%>/manager/manager_funny_manager.do"><span
 								class="glyphicon glyphicon-calendar"></span> 趣味管理</a></li>
-						<li><a href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
+						<li><a
+							href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
 						<li><a href="<%=request.getContextPath()%>/blog/admin"><span
 								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
@@ -139,8 +146,9 @@ body {
 					<div class="panel-body">
 						<span id="avatar" style="float:right;"><img
 							src="http://q.qlogo.cn/headimg_dl?dst_uin=378759617&spec=640&img_type=jpg"
-							class="img-rounded" height="80px" width="80px"></span>欢迎来到后台管理!
-						<br> 点击上方导航栏的 功能菜单 可以列出所有功能 <br> 此程序作者为 <a href="<%=request.getContextPath()%>/AboutMy/index.html"
+							class="img-rounded" height="80px" width="80px"></span>欢迎来到后台管理! <br>
+						点击上方导航栏的 功能菜单 可以列出所有功能 <br> 此程序作者为 <a
+							href="<%=request.getContextPath()%>/AboutMy/index.html"
 							target="_blank">恶搞大王</a> <br> 恶搞大王保留所有权利
 					</div>
 				</div>
@@ -156,28 +164,24 @@ body {
 							World!</li>
 						<li class="list-group-item"><span
 							class="glyphicon glyphicon-user"></span> <b>用户组：</b> 管理员</li>
-						<li class="list-group-item">
-						<span
-							class="glyphicon glyphicon-info-sign">
-						</span>
-							<c:if test="${not empty requestScope.user.userEmail}">
-								您已经绑定邮箱<a href="<%=request.getContextPath()%>/manager/manager_person_setting.do">${requestScope.user.userEmail}</a>
-							</c:if>
-							<c:if test="${empty requestScope.user.userEmail}">
-								 您还没绑定邮箱<a href="<%=request.getContextPath()%>/manager/manager_person_setting.do">前往绑定</a>
-							</c:if>
-						</li>
 						<li class="list-group-item"><span
-							class="glyphicon glyphicon-info-sign"></span>
-							<c:if test="${not empty requestScope.user.userPhone}">
+							class="glyphicon glyphicon-info-sign"> </span> <c:if
+								test="${not empty requestScope.user.userEmail}">
+								您已经绑定邮箱<a
+									href="<%=request.getContextPath()%>/manager/manager_person_setting.do">${requestScope.user.userEmail}</a>
+							</c:if> <c:if test="${empty requestScope.user.userEmail}">
+								 您还没绑定邮箱<a
+									href="<%=request.getContextPath()%>/manager/manager_person_setting.do">前往绑定</a>
+							</c:if></li>
+						<li class="list-group-item"><span
+							class="glyphicon glyphicon-info-sign"></span> <c:if
+								test="${not empty requestScope.user.userPhone}">
 							 您已绑定手机<a
-							href="<%=request.getContextPath()%>/manager/manager_person_setting.do">${requestScope.user.userPhone }</a>
-							</c:if>
-							<c:if test="${empty requestScope.user.userPhone}">
+									href="<%=request.getContextPath()%>/manager/manager_person_setting.do">${requestScope.user.userPhone }</a>
+							</c:if> <c:if test="${empty requestScope.user.userPhone}">
 								您还没有绑定手机<a
-							href="<%=request.getContextPath()%>/manager/manager_person_setting.do">前往绑定</a>
-							</c:if>
-							</li>
+									href="<%=request.getContextPath()%>/manager/manager_person_setting.do">前往绑定</a>
+							</c:if></li>
 						<li class="list-group-item"><span
 							class="glyphicon glyphicon-stats"></span> <b>状态统计信息：</b> <span
 							id="stat" onclick="view_status(this);"><a

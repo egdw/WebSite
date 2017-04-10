@@ -8,10 +8,7 @@
 <title>博客文章</title>
 </head>
 
-<body style="background-color: 	#FFFFF0">
-	<script type="text/javascript" color="255,0,0" opacity='0.7'
-		zIndex="-2" count="200"
-		src="<%=request.getContextPath()%>/js/canvas-nest.min.js"></script>
+<body>
 	<jsp:include page="/MyBlog_top.jsp"></jsp:include>
 	<!-- 下面是举例的文章内容 -->
 	<div class="container table_box">
@@ -46,10 +43,7 @@
 				class="glyphicon glyphicon-edit" style="color: gray"
 				aria-hidden="true"></span> <a style="text-decoration:none;"
 				href="##">评论</a>(${requestScope.blog.commentTimes})</label>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label
-				style="font-size: 15px;text-align: left"><span
-				class="glyphicon glyphicon-thumbs-up" style="color: gray"
-				aria-hidden="true"></span> 推荐(0)</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label
 				style="font-size: 15px"><fmt:formatDate
 					value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></label>
 		</div>

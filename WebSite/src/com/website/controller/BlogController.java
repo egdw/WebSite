@@ -38,6 +38,7 @@ public class BlogController {
 	private WebSiteAlbumService albumService;
 	@Autowired
 	private WebSiteCommentService commentService;
+
 	/**
 	 * 进入博客主页
 	 */
@@ -47,13 +48,16 @@ public class BlogController {
 		if (pageNum == null) {
 			pageNum = 0;
 		}
-		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum,null);
+		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum, null);
 		Integer pageCount = service.getPageNum(null);
-		//从数据库中获取最新的前五张图片
-		ArrayList<WebsiteAlbum> albumbyPage = albumService.selectAlbumbyPage(0, 5);
+		// 从数据库中获取最新的前五张图片
+		ArrayList<WebsiteAlbum> albumbyPage = albumService.selectAlbumbyPage(0,
+				5);
 		ArrayList<WebsiteComment> comments = commentService.getCommentByNum(5);
-		ArrayList<WebsiteBlog> selectBlogByNumAndComment = service.selectBlogByNumAndComment(5);
-		ArrayList<WebsiteBlog> selectBlogByNumAndReader = service.selectBlogByNumAndReader(5);
+		ArrayList<WebsiteBlog> selectBlogByNumAndComment = service
+				.selectBlogByNumAndComment(5);
+		ArrayList<WebsiteBlog> selectBlogByNumAndReader = service
+				.selectBlogByNumAndReader(5);
 		map.put("list", list);
 		map.put("pageCount", pageCount);
 		map.put("currentPage", pageNum);
@@ -68,11 +72,12 @@ public class BlogController {
 	 * 进入博客的照片
 	 */
 	@RequestMapping("/image")
-	public String entryBlogImage(Map<String, Object> map,Integer pageNum) {
-		if(pageNum==null){
+	public String entryBlogImage(Map<String, Object> map, Integer pageNum) {
+		if (pageNum == null) {
 			pageNum = 0;
 		}
-		ArrayList<WebsiteAlbum> list = albumService.selectAlbumbyPage(pageNum, 16);
+		ArrayList<WebsiteAlbum> list = albumService.selectAlbumbyPage(pageNum,
+				16);
 		Integer num = albumService.getPageNum(16);
 		map.put("list", list);
 		map.put("pageCount", num);
@@ -90,12 +95,13 @@ public class BlogController {
 	 */
 	@RequestMapping("type")
 	public String entryBlogType(@RequestParam(required = false) Integer typeId,
-			@RequestParam(required = false) Integer pageNum,Map<String, Object> map) {
-		if(pageNum==null){
+			@RequestParam(required = false) Integer pageNum,
+			Map<String, Object> map) {
+		if (pageNum == null) {
 			pageNum = 0;
 		}
-		if(typeId==null){
-			typeId=0;
+		if (typeId == null) {
+			typeId = 0;
 		}
 		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum, typeId);
 		Integer num = service.getPageNum(typeId);
@@ -118,7 +124,7 @@ public class BlogController {
 			pageNum = 0;
 		}
 		Integer pageCount = service.getPageNum(null);
-		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum,null);
+		ArrayList<WebsiteBlog> list = service.selectBlogByNum(pageNum, null);
 		map.put("list", list);
 		map.put("currentPage", pageNum);
 		map.put("pageCount", pageCount);
@@ -144,7 +150,8 @@ public class BlogController {
 		WebsiteBlog blog = service.getBlogById(pageId);
 		if (blog != null) {
 			boolean clickTimes = service.updateClickTimes(blog.getId());
-			ArrayList<WebsiteComment> list = commentService.selectCommentByBlogId(blog.getId());
+			ArrayList<WebsiteComment> list = commentService
+					.selectCommentByBlogId(blog.getId());
 			map.put("comments", list);
 			map.put("blog", blog);
 		} else {
@@ -173,8 +180,9 @@ public class BlogController {
 		if (filename != null && !filename.isEmpty()) {
 			int lastIndexOf = filename.lastIndexOf(".");
 			String string = filename.substring(lastIndexOf);
-			path = new File(request.getRealPath("upload"+File.separator+"image"+File.separator) + File.separator
-					+ UUIDUtils.getUUID() + string);
+			path = new File(request.getRealPath("upload" + File.separator
+					+ "image" + File.separator)
+					+ File.separator + UUIDUtils.getUUID() + string);
 		}
 		try {
 			byte[] bytes = file.getBytes();
@@ -190,7 +198,8 @@ public class BlogController {
 		if (path.exists()) {
 			// 这里进行返回相应的图片的地址.
 			String absolutePath = path.getAbsolutePath();
-			int indexOf = absolutePath.indexOf("upload"+File.separator+"image"+File.separator);
+			int indexOf = absolutePath.indexOf("upload" + File.separator
+					+ "image" + File.separator);
 			String substring = absolutePath.substring(indexOf);
 			return substring;
 		} else {
@@ -221,16 +230,17 @@ public class BlogController {
 
 	/**
 	 * 删除博客文章
+	 * 
 	 * @param blogId
 	 */
 	@RequestMapping(value = "del", method = RequestMethod.POST)
 	@ResponseBody
 	public String delBlog(Integer blogId) {
-		if(blogId==null){
+		if (blogId == null) {
 			return "error";
 		}
 		boolean delete = service.delete(blogId);
-		if(delete){
+		if (delete) {
 			return "success";
 		}
 		return "error";
@@ -243,11 +253,12 @@ public class BlogController {
 	 */
 	@RequestMapping(value = "update", method = RequestMethod.POST)
 	@ResponseBody
-	public String update(String title,Integer id,Integer type,String pic_url, String content) {
+	public String update(String title, Integer id, Integer type,
+			String pic_url, String content) {
 		WebsiteBlog record = null;
-		if(id!=null){
+		if (id != null) {
 			record = service.getBlogById(id);
-		}else{
+		} else {
 			return "error";
 		}
 		if (record == null) {
@@ -258,9 +269,9 @@ public class BlogController {
 		record.setType(type.byteValue());
 		record.setContent(content);
 		boolean delete = service.delete(id);
-		if(delete){
+		if (delete) {
 			boolean blog = service.addBlog(record);
-			if(blog){
+			if (blog) {
 				return "success";
 			}
 		}
@@ -278,15 +289,15 @@ public class BlogController {
 		WebsiteBlog blog = service.getBlogById(id);
 		return blog;
 	}
-	
+
 	@RequestMapping("blogFind")
-	public String find(Map<String, Object> map,String name){
-		if(name==null){
-			 return "/blog/blog_find";
+	public String find(Map<String, Object> map, String name) {
+		if (name == null) {
+			return "/blog/blog_find";
 		}
 		ArrayList<WebsiteBlog> list = service.find(name);
 		map.put("list", list);
 		return "/blog/blog_find";
 	}
-	
+
 }

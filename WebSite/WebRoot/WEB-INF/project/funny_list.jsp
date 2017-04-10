@@ -3,46 +3,23 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>趣味网站展示</title>
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/list/normalize.min.css">
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/list/font-awesome.min.css">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/list/style.css">
+<title>趣味项目</title>
 </head>
-<body style="background-image: url(<%=request.getContextPath()%>/images/bg.jpg);">
-	<div class="wrapper cf animated">
-		<div class="header grid cf">
-			<div class="main cf">
-				<div class="logo fl">
-					<img
-						href="http://q.qlogo.cn/headimg_dl?dst_uin=378759617&spec=640&img_type=jpg" width:"/>
-				</div>
-				<div class="title fl">
-					<h2>趣味网站展示</h2>
-					<p>
-						Back to <a href="<%=request.getContextPath()%>/index.jsp"
-							class="link">HomePage</a>
-					</p>
-				</div>
-				<div class="social fr">
-					<a href="<%=request.getContextPath()%>/login/manager">后台管理</a>
-				</div>
-			</div>
+<body>
+	<jsp:include page="/project_top.jsp"></jsp:include>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">趣味项目</h3>
 		</div>
-		<div class="demo-list cf ">
-			<ul class="js-list">
-				<c:forEach items="${requestScope.projects}" var="list" varStatus="i">
-					<li class="repo grid "><a href="${list.funnyUrl}"
-						target="_blank">
-							<h2><c:out value="${list.funnyTopic}"/></h2>
-							<p>${list.funnyText}</p>
-					</a>
-						<div class="repo-tags">恶搞大王</div></li>
-				</c:forEach>
-			</ul>
+		<div class="panel-body">
+			<c:forEach items="${requestScope.projects}" var="list" varStatus="i">
+				<a href="${list.funnyUrl}" class="list-group-item" target="_blank">
+					<h4 class="list-group-item-heading">
+						<c:out value="${list.funnyTopic}" />
+					</h4>
+					<p class="list-group-item-text">${list.funnyText}</p>
+				</a>
+			</c:forEach>
 		</div>
 	</div>
 </body>

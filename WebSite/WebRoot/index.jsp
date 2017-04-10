@@ -45,7 +45,7 @@ body{background:#000;}
 				<li class="menu">
 					<ul>
 						<li class="button"><a href="#">信息<span class="icon stat">
-							</span><i>4</i></a></li>
+							</span><i>5</i></a></li>
 						<li class="dropdown">
 							<ul class="icon-navigation">
 								<li><a href="project/MyProject.do">我的作品</a></li>

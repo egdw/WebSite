@@ -1,191 +1,171 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<!DOCTYPE html>
 <html>
 <head>
 <title>恶搞大王的个人博客</title>
 </head>
-
-<body style="background-color: 	#FFFFF0">
-	<script type="text/javascript" color="255,0,0" opacity='0.7'
-		zIndex="-2" count="200"
-		src="<%=request.getContextPath()%>/js/canvas-nest.min.js"></script>
+<body>
 	<jsp:include page="/MyBlog_top.jsp"></jsp:include>
-	<div class="container-fluid row">
-		<div class="container table_box col-lg-2" style=""></div>
-		<div class="container table_box col-lg-5" style="padding-left: 68px">
-			<label style="font-size: 16px"></label> <span style="font-size: 20px">最新</span>
-			<hr style="border: 1px solid silver">
-			<c:forEach items="${requestScope.list}" var="index">
-				<!-- 一个DIv的开始 -->
-				<div class="inline">
-					<a style="font-size:25px;text-decoration:none;"
-						href="detail?pageId=${index.id}">${index.title}</a> <a
-						style="float: right;text-decoration:none;"
-						href="detail?pageId=${index.id}" class="read_more_button">查看详细</a>
-				</div>
-				<div class="row"
-					style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
-					<div class="col-lg-3 col-sm-3">
-						<c:if test="${!empty index.picUrl}">
-							<div style="text-align: center;">
-								<a href="<%=request.getContextPath()%>/${index.picUrl}"
-									class="thumbnail" data-lightbox="example-1"><img
-									src="<%=request.getContextPath()%>/${index.picUrl}"
-									height="140px"></a>
+	<!--正文开始-->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			最新博文<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<c:forEach items="${requestScope.list}" var="index">
+					<div class="col-sm-6 col-md-4">
+						<div class="thumbnail" style="height: 280px">
+							<c:if test="${!empty index.picUrl}">
+								<img src="<%=request.getContextPath()%>/${index.picUrl}" data-lightbox="example-set"
+									alt="pic" width="200" height="200">
+							</c:if>
+							<c:if test="${empty index.picUrl}">
+								<img src="<%=request.getContextPath()%>/images/noimg.jpeg" data-lightbox="example-set"
+									alt="pic" width="200" height="200">
+							</c:if>
+							<div class="caption">
+								<h3>
+									<a href="detail?pageId=${index.id}"></a>${index.title}</h3>
+								<%-- <p style="display: block;height: 100px;">
+									${index.content}</p> --%>
+								<p>
+									<a href="detail?pageId=${index.id}" class="btn btn-primary"
+										role="button">查看详情</a> <span class="label label-default"><fmt:formatDate value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></span> <span class="label label-default">阅读(${index.clickTimes})</span>
+									<span class="label label-default">评论(${index.commentTimes})</span>
+								</p>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
+			<center>
+				<ul class="pagination">
+					<c:forEach var="index" begin="1" end="${requestScope.pageCount}">
+						<c:if test="${requestScope.currentPage==index}">
+							<li><a style="color: #000000"
+								href="<%=request.getContextPath()%>/blog/?pageNum=${index-1}">${index}</a></li>
+						</c:if>
+						<c:if test="${requestScope.currentPage!=index}">
+							<li><a
+								href="<%=request.getContextPath()%>/blog/?pageNum=${index-1}">${index}</a></li>
+						</c:if>
+					</c:forEach>
+				</ul>
+			</center>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			最新照片<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>
+		</div>
+		<div class="panel-body">
+			<div id="myCarousel" class="carousel slide">
+				<!-- 轮播（Carousel）指标 -->
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					<li data-target="#myCarousel" data-slide-to="1"></li>
+					<li data-target="#myCarousel" data-slide-to="2"></li>
+				</ol>
+				<!-- 轮播（Carousel）项目 -->
+				<div class="carousel-inner">
+					<c:forEach items="${requestScope.images}" var="index" varStatus="i">
+						<c:if test="${i.index == 0}">
+							<div class="item active">
+								<center>
+									<a href="<%=request.getContextPath()%>/${index.url}"
+										data-lightbox="example-set"> <img
+										src="<%=request.getContextPath()%>/${index.url}"
+										class="center-block" height="240px" style="height: 240px">
+									</a>
+								</center>
 							</div>
 						</c:if>
-						<c:if test="${empty index.picUrl}">
-						<div style="text-align: center;">
-							<a href="<%=request.getContextPath()%>/images/noimg.jpeg"
-								class="thumbnail" data-lightbox="example-1"><img
-								src="<%=request.getContextPath()%>/images/noimg.jpeg"
-								height="140px"></a>
-						</div>
+						<c:if test="${i.index != 0}">
+							<div class="item">
+								<center>
+									<a href="<%=request.getContextPath()%>/${index.url}"
+										data-lightbox="example-set"> <img
+										src="<%=request.getContextPath()%>/${index.url}"
+										class="center-block" height="240px" style="height: 240px">
+									</a>
+								</center>
+							</div>
 						</c:if>
-					</div>
-					<div class="col-lg-9 col-sm-9" style="font-size: 14px">
-						<div>
-							<p>${index.title}</p>
-							<p>${index.content}</p>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
-				<div style="text-align: right">
-					<label style="font-size: 12px;float: left"><fmt:formatDate
-							value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></label> <label
-						style="font-size: 12px;width: 70px;text-align: left"> <a
-						style="text-decoration:none;" href="detail?pageId=${index.id}">阅读</a>(${index.clickTimes})
-					</label> <label style="font-size: 12px;width: 70px;text-align: left">
-						<a style="text-decoration:none;" href="detail?pageId=${index.id}">评论</a>(${index.commentTimes})
-					</label>
-				</div>
-				<hr>
-				<!-- 一个div的结束 -->
+				<!-- 轮播（Carousel）导航 -->
+				<a class="carousel-control left" href="#myCarousel"
+					data-slide="prev"><span
+					class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				</a> <a class="carousel-control right" href="#myCarousel"
+					data-slide="next"><span
+					class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				</a>
+			</div>
+		</div>
+	</div>
 
-			</c:forEach>
-			<!-- 分页 -->
-			<nav style="text-align: center">
-
-			<ul class="pagination">
-				<c:forEach var="index" begin="1" end="${requestScope.pageCount}">
-					<c:if test="${requestScope.currentPage==index}">
-						<li><a style="color: #000000"
-							href="<%=request.getContextPath()%>/blog/?pageNum=${index-1}">${index}</a></li>
-					</c:if>
-					<c:if test="${requestScope.currentPage!=index}">
-						<li><a
-							href="<%=request.getContextPath()%>/blog/?pageNum=${index-1}">${index}</a></li>
-					</c:if>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			阅读排行<span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+		</div>
+		<div class="panel-body">
+			<ul class="list-group">
+				<c:forEach items="${requestScope.topComments}" var="index"
+					varStatus="i">
+					<li class="list-group-item"><span class="badge"
+						style="font-size: 20px;width: 27px;color: lightskyblue;background-color: snow">${i.index+1}</span>
+						<a style="color: slategray" href="detail?pageId=${index.id}">
+							${index.title }</a></li>
 				</c:forEach>
 			</ul>
-			</nav>
 		</div>
+	</div>
 
-		<!-- 下面显示的是最新上传的图片 -->
-		<div class="container col-lg-3"
-			style="padding-left: 90px;padding-right: 60px">
-			<div>
-				<legend>最新照片</legend>
-				<!-- 广告轮播 -->
-				<div id="ad-carousel" class="carousel slide" data-ride="carousel">
-					<ol class="carousel-indicators">
-						<c:forEach items="${requestScope.images}" var="index"
-							varStatus="i">
-							<c:if test="${i.index == 0}">
-								<li data-target="#ad-carousel" data-slide-to="${i.index}"
-									class="active"></li>
-							</c:if>
-							<c:if test="${i.index != 0}">
-								<li data-target="#ad-carousel" data-slide-to="${i.index}"></li>
-							</c:if>
-						</c:forEach>
-					</ol>
-					<div class="carousel-inner">
-						<div class="item2" style="overflow: hidden;">
-							<a href="<%=request.getContextPath()%>/${index.url}"
-								data-lightbox="example-set"> <img
-								src="<%=request.getContextPath()%>/${index.url}"
-								class="center-block" height="0px" style="height: 0px">
-							</a>
-						</div>
-						<c:forEach items="${requestScope.images}" var="index"
-							varStatus="i">
-							<c:if test="${i.index == 0}">
-								<div class="item active">
-									<a href="<%=request.getContextPath()%>/${index.url}"
-										data-lightbox="example-set"> <img
-										src="<%=request.getContextPath()%>/${index.url}"
-										class="center-block" height="240px" style="height: 240px">
-									</a>
-								</div>
-							</c:if>
-							<c:if test="${i.index != 0}">
-								<div class="item">
-									<a href="<%=request.getContextPath()%>/${index.url}"
-										data-lightbox="example-set"> <img
-										src="<%=request.getContextPath()%>/${index.url}"
-										class="center-block" height="240px" style="height: 240px">
-									</a>
-								</div>
-							</c:if>
-						</c:forEach>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			评论排行<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+		</div>
+		<div class="panel-body">
+			<ul class="list-group">
+				<c:forEach items="${requestScope.topReader}" var="index"
+					varStatus="i">
+					<li class="list-group-item"><span class="badge"
+						style="font-size: 20px;width: 27px;color: lightskyblue;background-color: snow">${i.index+1}</span>
+						<a style="color: slategray" href="detail?pageId=${index.id}">
+							${index.title }</a></li>
+				</c:forEach>
+			</ul>
+		</div>
+	</div>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			最新评论<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+		</div>
+		<div class="panel-body">
+			<c:forEach items="${requestScope.comments}" var="index" varStatus="i">
+				<!-- 第一个div -->
+				<div class="panel panel-primary">
+					<a
+						style="color: gray;font-size: 15px;overflow: hidden;text-overflow:ellipsis;width: 300px;display: block"
+						href="detail?pageId=${index.blogId}"><i>Re：${index.username}</i></a>
+					<div style="font-size:15px;padding-top: 10px;padding-bottom: 10px">
+						<span style="padding-left: 10px;line-height:150%"><span
+							style="color: gray" class="glyphicon glyphicon-user"
+							aria-hidden="true"></span> ${index.content}</span>
 					</div>
-					<a class="left carousel-control" href="#ad-carousel"
-						data-slide="prev">L</a> <a class="right carousel-control"
-						href="#ad-carousel" data-slide="next">R</a>
+					<span style="color:gray"> <i><fmt:formatDate
+								value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></i>
+					</span>
 				</div>
-				<!-- 下面显示的是阅读排行 -->
-				<div style="padding-top: 50px">
-					<legend>阅读排行</legend>
-					<c:forEach items="${requestScope.topComments}" var="index"
-						varStatus="i">
-						<div style="padding-bottom: 7px;padding-left: 10px">
-							<span class="badge"
-								style="font-size: 20px;width: 27px;color: lightskyblue;background-color: snow">${i.index+1}</span>
-							<a style="color: slategray" href="detail?pageId=${index.id}">
-								${index.title }</a>
-						</div>
-					</c:forEach>
-				</div>
-				<!-- 下面显示的是评价排行 -->
-				<div style="padding-top: 50px">
-					<legend>评论排行</legend>
-					<c:forEach items="${requestScope.topReader}" var="index"
-						varStatus="i">
-						<div style="padding-bottom: 7px;padding-left: 10px">
-							<span class="badge"
-								style="font-size: 20px;width: 27px;color: lightskyblue;background-color: snow">${i.index+1}</span>
-							<a style="color: slategray" href="detail?pageId=${index.id}">
-								${index.title }</a>
-						</div>
-					</c:forEach>
-				</div>
-				<!-- 下面是最新评论 -->
-				<div style="padding-top: 50px">
-					<legend>最新评论</legend>
-					<c:forEach items="${requestScope.comments}" var="index"
-						varStatus="i">
-						<!-- 第一个div -->
-						<div style="padding-left: 10px;padding-right: 10px">
-							<a
-								style="color: gray;font-size: 15px;overflow: hidden;text-overflow:ellipsis;width: 300px;display: block"
-								href="detail?pageId=${index.blogId}"><i>Re：${index.username}</i></a>
-							<div
-								style="font-size:15px;padding-top: 10px;padding-bottom: 10px">
-								<span style="padding-left: 10px;line-height:150%"><span
-									style="color: gray" class="glyphicon glyphicon-user"
-									aria-hidden="true"></span> ${index.content}</span>
-							</div>
-							<span style="color:gray"> <i><fmt:formatDate
-										value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></i>
-							</span>
-						</div>
-						<hr>
-					</c:forEach>
-				</div>
-				<script
-					src="<%=request.getContextPath()%>/css/MyBlog_files/lightbox.js"></script>
+				<hr>
+			</c:forEach>
+		</div>
+	</div>
 </body>
 </html>

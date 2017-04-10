@@ -32,22 +32,36 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!--<script src="js/bootstrap.min.js"></script>-->
 </head>
+
 <body>
-	<jsp:include page="/project_top.jsp"></jsp:include>
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h3 class="panel-title">个人项目</h3>
-		</div>
-		<div class="panel-body">
-			<c:forEach items="${requestScope.projects}" var="list" varStatus="i">
-				<a href="${list.projectUrl}" class="list-group-item" target="_blank">
-					<h4 class="list-group-item-heading">
-						<c:out value="${list.projectTopic}" />
-					</h4>
-					<p class="list-group-item-text">${list.projectText}</p>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img alt="Brand"
+					src="http://q.qlogo.cn/headimg_dl?dst_uin=378759617&spec=640&img_type=jpg"
+					width="25px" height="25px">
 				</a>
-			</c:forEach>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">项目展示</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="<%=request.getContextPath()%>/index.jsp">主页</a></li>
+					<li><a href="<%=request.getContextPath()%>/login/manager">管理</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 		</div>
-	</div>
+		<!-- /.container-fluid -->
+	</nav>
 </body>
 </html>

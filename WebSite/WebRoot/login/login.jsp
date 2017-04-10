@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>后台登录</title>
+<title>后台管理登录</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
@@ -21,8 +21,8 @@
 			});
 		});
 	</script>
-	<h1>后台管理登录</h1>
-	<div class="login-form">
+	<center>
+		<div class="login-form">
 		<div class="close"></div>
 		<div class="head-info">
 			<label class="lbl-1"> </label> <label class="lbl-2"> </label> <label
@@ -42,5 +42,6 @@
 		</div>
 		</form>
 	</div>
+	</center>
 </body>
 </html>
