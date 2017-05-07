@@ -31,7 +31,7 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class=""><a href="<%=request.getContextPath()%>/music/">首页
+					<li class=""><a href="<%=request.getContextPath()%>/music/">音乐首页
 							<span class="sr-only">(current)</span>
 					</a></li>
 					<li class=""><a
@@ -112,7 +112,6 @@
 						"appver=1.5.0.75771");
 						openConnection.setRequestProperty("Referer",
 						"http://music.163.com/");</p>
-					<p>我只能帮你们到这里了!</p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">了解</button>

@@ -27,6 +27,7 @@ import com.website.entites.WebsiteComment;
 import com.website.service.WebSiteAlbumService;
 import com.website.service.WebSiteBlogService;
 import com.website.service.WebSiteCommentService;
+import com.website.utils.ImageUtils;
 import com.website.utils.UUIDUtils;
 
 @RequestMapping("blog")
@@ -68,22 +69,6 @@ public class BlogController {
 		return "/blog/blog_index";
 	}
 
-	/**
-	 * 进入博客的照片
-	 */
-	@RequestMapping("/image")
-	public String entryBlogImage(Map<String, Object> map, Integer pageNum) {
-		if (pageNum == null) {
-			pageNum = 0;
-		}
-		ArrayList<WebsiteAlbum> list = albumService.selectAlbumbyPage(pageNum,
-				16);
-		Integer num = albumService.getPageNum(16);
-		map.put("list", list);
-		map.put("pageCount", num);
-		map.put("currentPage", pageNum);
-		return "/blog/blog_album";
-	}
 
 	/**
 	 * 进入不同的分类博客界面
@@ -198,6 +183,9 @@ public class BlogController {
 		if (path.exists()) {
 			// 这里进行返回相应的图片的地址.
 			String absolutePath = path.getAbsolutePath();
+			System.out.println(absolutePath);
+			//生成缓存文件
+			ImageUtils.thumbnailImage(absolutePath, 100, 150);
 			int indexOf = absolutePath.indexOf("upload" + File.separator
 					+ "image" + File.separator);
 			String substring = absolutePath.substring(indexOf);
@@ -268,13 +256,16 @@ public class BlogController {
 		record.setTitle(title);
 		record.setType(type.byteValue());
 		record.setContent(content);
-		boolean delete = service.delete(id);
-		if (delete) {
-			boolean blog = service.addBlog(record);
-			if (blog) {
-				return "success";
-			}
-		}
+		boolean b = service.update(record);
+		if(b)
+			return "success";
+//		boolean delete = service.delete(id);
+//		if (delete) {
+//			boolean blog = service.addBlog(record);
+//			if (blog) {
+//				return "success";
+//			}
+//		}
 		return "error";
 	}
 

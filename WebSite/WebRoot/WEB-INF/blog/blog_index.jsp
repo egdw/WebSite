@@ -19,14 +19,20 @@
 				<c:forEach items="${requestScope.list}" var="index">
 					<div class="col-sm-6 col-md-4">
 						<div class="thumbnail" style="height: 280px">
-							<c:if test="${!empty index.picUrl}">
-								<img src="<%=request.getContextPath()%>/${index.picUrl}" data-lightbox="example-set"
-									alt="pic" width="200" height="200">
-							</c:if>
-							<c:if test="${empty index.picUrl}">
-								<img src="<%=request.getContextPath()%>/images/noimg.jpeg" data-lightbox="example-set"
-									alt="pic" width="200" height="200">
-							</c:if>
+							<center>
+								<div style="width: 300px;height: 150px;overflow: hidden;">
+									<c:if test="${!empty index.picUrl}">
+										<img src="<%=request.getContextPath()%>/${index.picUrl}"
+											data-lightbox="example-set" alt="pic" width="300"
+											style="overflow:hidden;">
+									</c:if>
+									<c:if test="${empty index.picUrl}">
+										<img src="<%=request.getContextPath()%>/images/noimg.jpeg"
+											data-lightbox="example-set" alt="pic" width="220"
+											style="overflow:hidden;">
+									</c:if>
+								</div>
+							</center>
 							<div class="caption">
 								<h3>
 									<a href="detail?pageId=${index.id}"></a>${index.title}</h3>
@@ -34,8 +40,10 @@
 									${index.content}</p> --%>
 								<p>
 									<a href="detail?pageId=${index.id}" class="btn btn-primary"
-										role="button">查看详情</a> <span class="label label-default"><fmt:formatDate value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/></span> <span class="label label-default">阅读(${index.clickTimes})</span>
-									<span class="label label-default">评论(${index.commentTimes})</span>
+										role="button">详情</a> <span class="label label-default"><fmt:formatDate
+											value="${index.createTime}" pattern="yyyy-MM-dd HH:mm" /></span> <span
+										class="label label-default">阅读(${index.clickTimes})</span> <span
+										class="label label-default">评论(${index.commentTimes})</span>
 								</p>
 							</div>
 						</div>
@@ -76,9 +84,8 @@
 						<c:if test="${i.index == 0}">
 							<div class="item active">
 								<center>
-									<a href="<%=request.getContextPath()%>/${index.url}"
-										data-lightbox="example-set"> <img
-										src="<%=request.getContextPath()%>/${index.url}"
+									<a> <img
+										src="<%=request.getContextPath()%>/${index.urlThumb}"
 										class="center-block" height="240px" style="height: 240px">
 									</a>
 								</center>
@@ -87,9 +94,8 @@
 						<c:if test="${i.index != 0}">
 							<div class="item">
 								<center>
-									<a href="<%=request.getContextPath()%>/${index.url}"
-										data-lightbox="example-set"> <img
-										src="<%=request.getContextPath()%>/${index.url}"
+									<a> <img
+										src="<%=request.getContextPath()%>/${index.urlThumb}"
 										class="center-block" height="240px" style="height: 240px">
 									</a>
 								</center>
@@ -153,7 +159,7 @@
 				<div class="panel panel-primary">
 					<a
 						style="color: gray;font-size: 15px;overflow: hidden;text-overflow:ellipsis;width: 300px;display: block"
-						href="detail?pageId=${index.blogId}"><i>Re：${index.username}</i></a>
+						href="detail?pageId=${index.blogId}"><i>${index.username}:</i></a>
 					<div style="font-size:15px;padding-top: 10px;padding-bottom: 10px">
 						<span style="padding-left: 10px;line-height:150%"><span
 							style="color: gray" class="glyphicon glyphicon-user"
@@ -167,5 +173,7 @@
 			</c:forEach>
 		</div>
 	</div>
+	<script
+		src="<%=request.getContextPath()%>/css/MyBlog_files/lightbox.js"></script>
 </body>
 </html>

@@ -78,7 +78,11 @@ public class WebSiteAlbumService {
 		}
 		return page;
 	}
-
+	
+	public ArrayList<WebsiteAlbum> getAll(){
+		return mapper.getAll();
+	}
+	
 	public ArrayList<WebsiteAlbum> selectAlbumbyPage(Integer pageNum, Integer i) {
 		ArrayList<WebsiteAlbum> selectAlbumByPage = null;
 		if (i != null) {

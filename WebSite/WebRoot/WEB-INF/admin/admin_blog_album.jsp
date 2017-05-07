@@ -227,7 +227,7 @@ body {
 													href="<%=request.getContextPath()%>/${index.url}"
 													class="thumbnail" data-lightbox="example-set"
 													data-title="<div style='padding-top:5px;font-size: 16px'></div>">
-														<img src="<%=request.getContextPath()%>/${index.url}"
+														<img src="<%=request.getContextPath()%>/${index.urlThumb}"
 														height="30px" style="height: 30px">
 												</a></td>
 											</c:if>

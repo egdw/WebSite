@@ -29,6 +29,10 @@ public class CommentController {
 				| username.isEmpty()) {
 			return "error";
 		}
+		//判断是否植入了脚本语言
+		if(content.contains("<script>")||content.contains("</script>")){
+			return "error";
+		}
 		commentService.addComment(blogId, content, email, username);
 		return "success";
 	}

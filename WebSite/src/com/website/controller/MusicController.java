@@ -1,9 +1,5 @@
 package com.website.controller;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 import java.util.List;
@@ -12,13 +8,11 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.alibaba.fastjson.JSON;
 import com.website.entites.NeteaseMusic;
 import com.website.entites.NeteaseMusicMVCode;
 import com.website.entites.NeteaseMusicMvModel;
 import com.website.entites.NeteaseMusicResult;
 import com.website.utils.NeteaseMusicUtils;
-import com.website.utils.NeteaseMusicUtils.UrlConstants;
 
 @Controller
 @RequestMapping("music")

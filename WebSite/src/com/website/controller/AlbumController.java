@@ -18,7 +18,6 @@ import com.website.service.WebSiteAlbumService;
 public class AlbumController {
 	@Autowired
 	private WebSiteAlbumService service;
-
 	/**
 	 * 添加图片的方法
 	 */
@@ -33,6 +32,9 @@ public class AlbumController {
 		album.setCreateTime(new Date());
 		album.setTitle(title);
 		album.setUrl(pic_url);
+		int i = pic_url.lastIndexOf('/');
+		album.setUrlThumb(pic_url.substring(0, i + 1) + "thumb_"
+				+ pic_url.substring(i + 1));
 		boolean b = service.addAlbum(album);
 		if (b) {
 			return "success";
@@ -85,7 +87,7 @@ public class AlbumController {
 			pageNum = 0;
 		}
 		Integer integer = service.getPageNum(null);
-		ArrayList<WebsiteAlbum> list = service.selectAlbumbyPage(pageNum,10);
+		ArrayList<WebsiteAlbum> list = service.selectAlbumbyPage(pageNum, 10);
 		map.put("list", list);
 		map.put("pageCount", integer);
 		map.put("currentPage", pageNum);

@@ -106,8 +106,10 @@
 				/login/Login.do = anon
 				/music = anon
 				/unauthorized.jsp = anon
+				/image = anon
 				/login.jsp = anon
 				/*.jar = anon
+				/assets/** = anon
 				/404.jsp=anon
 				/ckeditor/** =anon
 				/ckfinder/** =anon

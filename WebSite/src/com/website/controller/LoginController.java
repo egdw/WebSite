@@ -36,7 +36,7 @@ public class LoginController {
 		try {
 			subject.login(token);
 		} catch (Exception e) {
-			return "error";
+			return "redirect:/login/login.jsp";
 			// 说明登陆失败
 		}
 		if (subject.isAuthenticated()) {
@@ -45,7 +45,7 @@ public class LoginController {
 				subject.checkRole("super_admin");
 			} catch (AuthorizationException e) {
 				// 说明不是超级管理员.
-				return "error";
+				return "redirect:/login/login.jsp";
 			}
 		}
 		return "admin/admin_index";

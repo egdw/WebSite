@@ -27,6 +27,7 @@ body{background:#000;}
 						alt="" />
 					<h2>恶搞大王</h2>
 					<a href="mailto:378759617@qq.com"><p>@恶搞大王</p></a>
+					<a><p>浙ICP备17015181号</p></a>
 				</div>
 			</div>
 			<div class="followers">
@@ -45,11 +46,12 @@ body{background:#000;}
 				<li class="menu">
 					<ul>
 						<li class="button"><a href="#">信息<span class="icon stat">
-							</span><i>5</i></a></li>
+							</span><i>6</i></a></li>
 						<li class="dropdown">
 							<ul class="icon-navigation">
 								<li><a href="project/MyProject.do">我的作品</a></li>
 								<li><a href="blog/">我的博客</a></li>
+								<li><a href="image">我的相册</a></li>
 								<li><a href="funnyView.do">趣味网页</a></li>
 								<li><a href="tempView.do">临时网页</a></li>
 								<li><a href="music">我的音乐</a></li>

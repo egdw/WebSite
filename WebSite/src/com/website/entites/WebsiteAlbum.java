@@ -11,6 +11,8 @@ public class WebsiteAlbum {
 
     private Date createTime;
 
+    private String urlThumb;
+
     public Integer getId() {
         return id;
     }
@@ -41,5 +43,13 @@ public class WebsiteAlbum {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public String getUrlThumb() {
+        return urlThumb;
+    }
+
+    public void setUrlThumb(String urlThumb) {
+        this.urlThumb = urlThumb;
     }
 }

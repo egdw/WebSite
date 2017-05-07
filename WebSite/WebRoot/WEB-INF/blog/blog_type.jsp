@@ -17,26 +17,30 @@
 			<div class="row">
 				<c:forEach items="${requestScope.list}" var="index">
 					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail"  style="height: 320px">
-							<c:if test="${!empty index.picUrl}">
-								<img src="<%=request.getContextPath()%>/${index.picUrl}"
-									alt="pic" width="200" height="200">
-							</c:if>
-							<c:if test="${empty index.picUrl}">
-								<img src="<%=request.getContextPath()%>/images/noimg.jpeg"
-									alt="pic" width="200" height="200">
-							</c:if>
-							<div class="caption">
-								<h3>
-									<a href="detail?pageId=${index.id}"></a>${index.title}</h3>
-								<%-- <p>${index.content}</p> --%>
-								<p>
-									<a href="detail?pageId=${index.id}" class="btn btn-primary"
-										role="button">查看详情</a> <span class="label label-default"><fmt:formatDate
-											value="${index.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
-									<span class="label label-default">阅读(${index.clickTimes})</span>
-								</p>
-							</div>
+						<div class="thumbnail" style="height: 320px">
+							<center>
+								<div style="width: 300px;height: 150px;overflow: hidden;">
+									<c:if test="${!empty index.picUrl}">
+										<img src="<%=request.getContextPath()%>/${index.picUrl}"
+											alt="pic" width="300">
+									</c:if>
+									<c:if test="${empty index.picUrl}">
+										<img src="<%=request.getContextPath()%>/images/noimg.jpeg"
+											alt="pic" width="220" >
+									</c:if>
+								</div>
+								<div class="caption">
+									<h3>
+										<a href="detail?pageId=${index.id}"></a>${index.title}</h3>
+									<%-- <p>${index.content}</p> --%>
+									<p>
+										<a href="detail?pageId=${index.id}" class="btn btn-primary"
+											role="button">详情</a> <span class="label label-default"><fmt:formatDate
+												value="${index.createTime}" pattern="yyyy-MM-dd HH:mm" /></span>
+										<span class="label label-default">阅读(${index.clickTimes})</span>
+										<span class="label label-default">评论(${index.commentTimes})</span>
+									</p>
+								</div>
 						</div>
 					</div>
 				</c:forEach>

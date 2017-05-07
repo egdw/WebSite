@@ -18,14 +18,16 @@
 				<c:forEach items="${requestScope.list}" var="index">
 					<div class="col-sm-6 col-md-4">
 						<div class="thumbnail"  style="height: 320px">
+						<center><div style="width: 300px;height: 150px;overflow: hidden;">
 							<c:if test="${!empty index.picUrl}">
 								<img src="<%=request.getContextPath()%>/${index.picUrl}"
-									alt="pic" width="200" height="200">
+									alt="pic" width="300">
 							</c:if>
 							<c:if test="${empty index.picUrl}">
 								<img src="<%=request.getContextPath()%>/images/noimg.jpeg"
-									alt="pic" width="200" height="200">
+									alt="pic" width="220">
 							</c:if>
+							</div></center>
 							<div class="caption">
 								<h3>
 									<a href="detail?pageId=${index.id}"></a>${index.title}</h3>

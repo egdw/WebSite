@@ -153,7 +153,8 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       comment_times = #{commentTimes,jdbcType=INTEGER},
       agree_with_times = #{agreeWithTimes,jdbcType=INTEGER},
-      pic_url = #{picUrl,jdbcType=VARCHAR}
+      pic_url = #{picUrl,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
   
