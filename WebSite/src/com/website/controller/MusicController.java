@@ -157,6 +157,7 @@ public class MusicController {
 	public static String openMusic(Map<String, Object> map,String id){
 		String lyricsById = NeteaseMusicUtils.getLyricsById(id);
 		NeteaseMusicResult musicResult = NeteaseMusicUtils.Cloud_Music_MusicInfoAPI(id, id);
+		System.out.println(musicResult);
 		map.put("songs", musicResult.getSongs());
 		if(lyricsById!=null && !lyricsById.isEmpty()){
 			String[] split = lyricsById.split("\n");

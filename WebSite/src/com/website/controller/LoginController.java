@@ -29,7 +29,8 @@ public class LoginController {
 	 *            密码
 	 */
 	@RequestMapping(value = "Login.do", method = RequestMethod.POST)
-	public String loginByUsernamePasswd(String username, String password) {
+	public String loginByUsernamePasswd(String username, String password,
+			Map<String, Object> requests) {
 		Subject subject = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(username,
 				password);
@@ -48,6 +49,8 @@ public class LoginController {
 				return "redirect:/login/login.jsp";
 			}
 		}
+		WebsiteUser user = service.getByUsername(username);
+		requests.put("user", user);
 		return "admin/admin_index";
 	}
 
@@ -71,17 +74,18 @@ public class LoginController {
 		subject.logout();
 		return "redirect:/login/login.jsp";
 	}
-	
+
 	/*
 	 * 这个主要当用户点击进入管理的时候能够判断用户是否已经登录.如果已经登录就跳转到管理主页面
 	 */
 	@RequestMapping("manager")
-	public String OpenManagerView(Map<String, Object> map){
+	public String OpenManagerView(Map<String, Object> map) {
 		Subject subject = SecurityUtils.getSubject();
-		if(subject.isAuthenticated()){
+		if (subject.isAuthenticated()) {
 			try {
 				subject.checkRole("super_admin");
-				WebsiteUser user = service.getByUsername((String) subject.getPrincipal());
+				WebsiteUser user = service.getByUsername((String) subject
+						.getPrincipal());
 				map.put("user", user);
 				return "/admin/admin_index";
 			} catch (AuthorizationException e) {

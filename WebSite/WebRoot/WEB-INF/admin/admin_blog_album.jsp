@@ -113,7 +113,7 @@ body {
 						<li><a
 							href="<%=request.getContextPath()%>/manager/manager_temp_manager.do"><span
 								class="glyphicon glyphicon-exclamation-sign"></span> 临时管理</a></li>
-						<li class="active"><a
+						<li><a
 							href="<%=request.getContextPath()%>/blog/admin"><span
 								class="glyphicon glyphicon-ban-circle"></span> 博客管理</a></li>
 						<li class="active"><a

@@ -1,5 +1,6 @@
 package com.website.controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
@@ -32,9 +33,9 @@ public class AlbumController {
 		album.setCreateTime(new Date());
 		album.setTitle(title);
 		album.setUrl(pic_url);
-		int i = pic_url.lastIndexOf('/');
-		album.setUrlThumb(pic_url.substring(0, i + 1) + "thumb_"
-				+ pic_url.substring(i + 1));
+		int i = pic_url.lastIndexOf(File.separator);
+		album.setUrlThumb((pic_url.substring(0, i + 1) + "thumb_"
+				+ pic_url.substring(i + 1)).replaceAll(File.separator, "/"));
 		boolean b = service.addAlbum(album);
 		if (b) {
 			return "success";
